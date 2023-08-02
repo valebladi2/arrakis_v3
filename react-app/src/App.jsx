@@ -8,15 +8,14 @@ import Login from './components/Login'
 import { Bonds } from './components/Bonds';
 import { Profile } from './components/Profile';
 import {Route, Routes} from 'react-router-dom';
-import Login from "./components/Login";
 import Register from "./components/Register";
 
 const App = () => {
 
-  const location = useLocation();
-  const hideNavbar = location.pathname === '/login';
+
+
   
-  if (!hideNavbar){
+
 
   return (
     <>
@@ -42,6 +41,6 @@ const App = () => {
           <Route path="/login" element={<Login/>}/>
       </Routes>
     </>);
-}}
+}
 
 export default App;
