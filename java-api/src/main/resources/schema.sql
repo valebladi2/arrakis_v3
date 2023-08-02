@@ -3,16 +3,15 @@ DROP TABLE IF EXISTS books;
 DROP TABLE IF EXISTS books_users;
 DROP TABLE IF EXISTS trade;
 
-
 CREATE TABLE users (
-    user_id INT NOT NULL,
+    user_id INT NOT NULL AUTO_INCREMENT,
     bond_holder VARCHAR(100) NOT NULL,
     type VARCHAR(50) NOT NULL,
     PRIMARY KEY (user_id)
 );
 
 CREATE TABLE books (
-    book_id INT NOT NULL,
+    book_id INT NOT NULL AUTO_INCREMENT,
     book_name VARCHAR(100) NOT NULL,
     status VARCHAR(50) NOT NULL,
     bond_maturity_date DATE,
@@ -34,7 +33,7 @@ CREATE TABLE books_users (
 
 
 CREATE TABLE trade (
-    trade_id int NOT NULL,
+    trade_id int NOT NULL AUTO_INCREMENT,
     trade_type VARCHAR(250) NOT NULL,
     book_name VARCHAR(100) NOT NULL,
     isin VARCHAR(100) NOT NULL,
@@ -43,7 +42,6 @@ CREATE TABLE trade (
     trade_status VARCHAR(50) NOT NULL,
     trade_settlement_date DATE NOT NULL,
     quantity INT NOT NULL,
-    trade_currency VARCHAR(50) NOT NULL,
     PRIMARY KEY (trade_id)
 );
 
