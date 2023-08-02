@@ -32,6 +32,6 @@ public class Book
     }
 
     @Column(name = "holder", nullable = false)
-    public String getBookHolder(){return holder;}
-    public void setBookHolder(String bookHolder){this.holder = holder;}
+    public String getHolder(){return holder;}
+    public void setHolder(String holder){this.holder = holder;}
 }
