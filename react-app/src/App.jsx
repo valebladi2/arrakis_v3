@@ -6,7 +6,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import HomePage from './components/HomePage';
 import { Bonds } from './components/Bonds';
 import { Profile } from './components/Profile';
-import { Route, Routes } from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 const App = () => {
   return (
@@ -25,9 +27,12 @@ const App = () => {
         </Container>
       </Navbar>
       <Routes>
+          <Route path="/" element={<Login/>} />
           <Route path="/home" element={<HomePage/>} />
           <Route path="/profile" element={<Profile/>} />
           <Route path="/bonds" element={<Bonds/>} />
+          <Route path="/register" element={<Register/>}/>
+          <Route path="/login" element={<Login/>}/>
       </Routes>
     </>);
 }
