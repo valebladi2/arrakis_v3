@@ -4,11 +4,18 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar';
 import HomePage from './components/HomePage';
+import Login from './components/Login'
 import { Bonds } from './components/Bonds';
 import { Profile } from './components/Profile';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 const App = () => {
+
+  const location = useLocation();
+  const hideNavbar = location.pathname === '/login';
+  
+  if (!hideNavbar){
+
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary">
@@ -28,8 +35,9 @@ const App = () => {
           <Route path="/home" element={<HomePage/>} />
           <Route path="/profile" element={<Profile/>} />
           <Route path="/bonds" element={<Bonds/>} />
+          <Route path="/logout" element={<Login/>} />
       </Routes>
     </>);
-}
+}}
 
 export default App;
