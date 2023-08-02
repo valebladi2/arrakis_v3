@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS books;
-DROP TABLE IF EXISTS books_users;
+DROP TABLE IF EXISTS booksUsers;
 DROP TABLE IF EXISTS trade;
 
 CREATE TABLE users (
@@ -25,10 +25,11 @@ CREATE TABLE books (
     PRIMARY KEY (bookId)
 );
 
-CREATE TABLE books_users (
+CREATE TABLE booksUsers (
+    bookUserId int AUTO_INCREMENT,
     bondHolder VARCHAR(250) NOT NULL,
     bookName VARCHAR(250) NOT NULL,
-    PRIMARY KEY (bondHolder, bookName)
+    PRIMARY KEY (bookUserId)
 );
 
 
