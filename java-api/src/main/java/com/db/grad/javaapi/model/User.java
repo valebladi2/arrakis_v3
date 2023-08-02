@@ -10,60 +10,23 @@ import javax.persistence.Table;
 public class User
 {
     @Id
-    private long id;
-    private String name;
-    private int quantity;
-    private float unitPrice;
-    private String book;
+    private long userId;
+    private String bondHolder;
+    private String type;
 
     @Id //Set the user_id as the ID for the table
-    @Column(name = "user_id", nullable = false)
+    @Column(name = "userId", nullable = false)
+    public long getUserId() {return userId;}
+    public void setUserId(long userId){this.userId = userId;}
 
-    // getter and setter methods for ID
-    public long getId() {
-        return id;
-    }
-    public void setId(long id) {
-        this.id = id;
-    }
+    @Column(name = "type", nullable = false) // Column bondHolder: "type"
+    public String getType() {return type;}
+    public void setType(String type){this.type = type;}
 
-    @Column(name = "book", nullable = false) // Column name: "book"
+    @Column(name = "bondHolder", nullable = false) // bondHolder of User
+    public String getBondHolder() {
+        return bondHolder;
+    }
+    public void setBondHolder(String bondHolder) {this.bondHolder = bondHolder;}
 
-    // getter and setter methods for book
-    public String getBook() {
-        return book;
-    }
-    public void setBook(String book){
-        this.book = book;
-    }
-
-    @Column(name = "name", nullable = false) // name of User
-
-    // getter and setter methods for the name of the user
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Column(name = "unitPrice", nullable = false) // Column name: "unitPrice"
-
-    // getter and setter methods for unitPrice of bond
-    public float getUnitPrice() {
-        return unitPrice;
-    }
-    public void setUnitPrice(float unitPrice) {
-        this.unitPrice = unitPrice;
-    }
-
-    @Column(name = "quantity", nullable = false) // Column name: "quantity"
-
-    // getter and setter methods for quantity of bonds
-    public int getQuantity(){
-        return quantity;
-    }
-    public void setQuantity(int quantity){
-        this.quantity = quantity;
-    }
 }
