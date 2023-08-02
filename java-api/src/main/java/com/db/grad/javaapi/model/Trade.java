@@ -1,50 +1,67 @@
 package com.db.grad.javaapi.model;
 
+import jdk.vm.ci.meta.Local;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Trade")
 public class Trade
 {
     @Id
-    private long id;
-    private String currency;
-    private String type;
-    private String settlementDate;
-    private boolean status;
-    private String tradeDate;
+    private long tradeId;
+    private String tradeCurrency;
+    private String tradeType;
+    private LocalDate tradeSettlementDate;
+    private String tradeStatus;
+    private LocalDate tradeDate;
+    private int quantity;
+    private String bookName;
+    private String isin;
 
     @Id
-    @Column(name = "trade_id", nullable = false)
-    public long getId() {return id;}
-    public void setId(long id) {this.id = id;}
+    @Column(name = "tradeId", nullable = false)
+    public long getTradeId() {return tradeId;}
+    public void setTradeId(long id) {this.tradeId = tradeId;}
 
-    @Column(name = "type", nullable = false)
-    public String getType() {return type;}
-    public void setType(String type) {this.type = type;}
+    @Column(name = "tradeType", nullable = false)
+    public String getTradeType() {return tradeType;}
+    public void setTradeType(String type) {this.tradeType = tradeType;}
 
-    @Column(name = "currency", nullable = false)
-    public String getCurrency(){return currency;}
-    public void setCurrency(String currency){this.currency = currency;}
+    @Column(name = "tradeCurrency", nullable = false)
+    public String getTradeCurrency(){return tradeCurrency;}
+    public void setTradeCurrency(String tradeCurrency){this.tradeCurrency = tradeCurrency;}
 
-    @Column(name = "settlementDate", nullable = false)
-    public String getSettlementDate() {return settlementDate;}
-    public void setSettlementDate(String settlementDate) {this.settlementDate = settlementDate;}
+    @Column(name = "tradeSettlementDate", nullable = false)
+    public LocalDate getTradeSettlementDate() {return tradeSettlementDate;}
+    public void setTradeSettlementDate(int year, int month, int day) {this.tradeSettlementDate = LocalDate.of(year, month, day);}
 
-    @Column(name = "status", nullable = false)
-    public boolean getStatus() {return this.status;}
-    public void setStatus(boolean status) {this.status = status;}
+    @Column(name = "tradeStatus", nullable = false)
+    public String getTradeStatus() {return this.tradeStatus;}
+    public void setTradeStatus(String status) {this.tradeStatus = status;}
 
     @Column(name = "tradeDate", nullable = false)
-    public String getTradeDate() {
-        return tradeDate;
-    }
-    public void setTradeDate(String tradeDate) {
-        this.tradeDate = tradeDate;
-    }
+    public LocalDate getTradeDate() {return tradeDate;}
+    public void setTradeDate(int year, int month, int day){LocalDate tradeDate = LocalDate.of(year, month, day);}
 
+    @Column(name = "quantity", nullable = false) // Column bondHolder: "quantity"
+    public int getQuantity(){return quantity;}
+    public void setQuantity(int quantity){this.quantity = quantity;}
+
+    @Column(name = "bookName", nullable = false)
+    public String getBookName() {return bookName;}
+    public void setBookName(String bookName) {this.bookName = bookName;}
+
+    @Column(name = "isin", nullable = false)
+    public String getIsin() {
+        return isin;
+    }
+    public void setIsin(String isin) {
+        this.isin = isin;
+    }
 }
 
