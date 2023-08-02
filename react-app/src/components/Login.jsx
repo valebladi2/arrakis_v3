@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useNavigate} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -7,6 +8,11 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
 
+    let navigate = useNavigate();
+    const routeChange =() =>{
+        let path = '/register'
+        navigate(path)
+    }
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
@@ -63,6 +69,8 @@ const Login = () => {
                     {errors.password && <span className="text-danger" style={{marginLeft:"500px"}}>{errors.password}</span>}
                 </div>
                 <button type="submit" className="btn btn-primary" style={{marginTop:"10px", marginLeft:"500px"}}>Login</button>
+                <button type="submit" className="btn btn-primary" onClick={routeChange} style={{marginTop:"10px", marginLeft:"150px"}}>Register</button>
+
             </form>
         </div>
     );
