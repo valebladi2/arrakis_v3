@@ -4,46 +4,46 @@ DROP TABLE IF EXISTS booksUsers;
 DROP TABLE IF EXISTS trade;
 
 CREATE TABLE users (
-    userId INT NOT NULL AUTO_INCREMENT,
-    bondHolder VARCHAR(100) NOT NULL,
+    userid INT NOT NULL AUTO_INCREMENT,
+    bondholder VARCHAR(100) NOT NULL,
     type VARCHAR(50) NOT NULL,
-    PRIMARY KEY (userId)
+    PRIMARY KEY (userid)
 );
 
 CREATE TABLE books (
-    bookId INT NOT NULL AUTO_INCREMENT,
-    bookName VARCHAR(100) NOT NULL,
+    bookid INT NOT NULL AUTO_INCREMENT,
+    bookname VARCHAR(100) NOT NULL,
     status VARCHAR(50) NOT NULL,
-    bondMaturityDate DATE,
-    issuerName VARCHAR(200) NOT NULL,
+    bondmaturitydate DATE,
+    issuername VARCHAR(200) NOT NULL,
     isin VARCHAR(100) NOT NULL,
-    faceValue INT NOT NULL,
+    facevalue INT NOT NULL,
     cusip VARCHAR(100),
-    bondCurrency VARCHAR(100) NOT NULL,
-    couponPercent DOUBLE NOT NULL,
-    unitPrice DOUBLE NOT NULL,
-    PRIMARY KEY (bookId)
+    bondcurrency VARCHAR(100) NOT NULL,
+    couponpercent DOUBLE NOT NULL,
+    unitprice DOUBLE NOT NULL,
+    PRIMARY KEY (bookid)
 );
 
-CREATE TABLE booksUsers (
-    bookUserId int AUTO_INCREMENT,
-    bondHolder VARCHAR(250) NOT NULL,
-    bookName VARCHAR(250) NOT NULL,
-    PRIMARY KEY (bookUserId)
+CREATE TABLE booksusers (
+    bookuserid int AUTO_INCREMENT,
+    bondholder VARCHAR(250) NOT NULL,
+    bookname VARCHAR(250) NOT NULL,
+    PRIMARY KEY (bookuserid)
 );
 
 
-CREATE TABLE trade (
-    tradeId int NOT NULL AUTO_INCREMENT,
-    tradeType VARCHAR(250) NOT NULL,
-    bookName VARCHAR(100) NOT NULL,
+CREATE TABLE trades (
+    tradeid int NOT NULL AUTO_INCREMENT,
+    tradetype VARCHAR(250) NOT NULL,
+    bookname VARCHAR(100) NOT NULL,
     isin VARCHAR(100) NOT NULL,
-    tradeCurrency VARCHAR(250) NOT NULL,
-    tradeDate DATE NOT NULL,
-    tradeStatus VARCHAR(50) NOT NULL,
-    tradeSettlementDate DATE NOT NULL,
+    tradecurrency VARCHAR(250) NOT NULL,
+    tradedate DATE NOT NULL,
+    tradestatus VARCHAR(50) NOT NULL,
+    tradesettlementdate DATE NOT NULL,
     quantity INT NOT NULL,
-    PRIMARY KEY (tradeId)
+    PRIMARY KEY (tradeid)
 );
 
 

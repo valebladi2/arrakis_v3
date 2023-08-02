@@ -6,24 +6,24 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "User")
+@Table(name = "users")
 public class User
 {
     @Id
-    private long userId;
+    private int userId;
     private String bondHolder;
     private String type;
 
     @Id //Set the user_id as the ID for the table
-    @Column(name = "userId", nullable = false)
-    public long getUserId() {return userId;}
-    public void setUserId(long userId){this.userId = userId;}
+    @Column(name = "userid", nullable = false)
+    public int getUserId() {return userId;}
+    public void setUserId(int userId){this.userId = userId;}
 
     @Column(name = "type", nullable = false) // Column bondHolder: "type"
     public String getType() {return type;}
     public void setType(String type){this.type = type;}
 
-    @Column(name = "bondHolder", nullable = false) // bondHolder of User
+    @Column(name = "bondholder", nullable = false) // bondHolder of User
     public String getBondHolder() {
         return bondHolder;
     }
