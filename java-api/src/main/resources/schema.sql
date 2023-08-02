@@ -3,7 +3,6 @@ DROP TABLE IF EXISTS books;
 DROP TABLE IF EXISTS books_users;
 DROP TABLE IF EXISTS trade;
 
-tgbhjekjqngml
 
 CREATE TABLE users (
     user_id INT NOT NULL,
