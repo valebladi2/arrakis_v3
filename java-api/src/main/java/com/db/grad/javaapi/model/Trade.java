@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "Trade")
+@Table(name = "trade")
 public class Trade
 {
     @Id
