@@ -1,8 +1,11 @@
 import React from "react";
-import { Pets } from "./components/pets/Pets";
+import Register from "./components/Register";
+
 
 const App = () => {
-  return <Pets />;
+   return (
+       <Register/>
+   );
 };
 
 export default App;
