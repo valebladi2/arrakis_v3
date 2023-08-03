@@ -7,5 +7,13 @@ import java.util.List;
 
 @Service
 public interface ITradeService {
-    public List<Trades> getAllTrades();
+    List<Trades> getAllTrades();
+
+    Trades getTradesById(Long id);
+
+    Trades updateTradeDetails(Trades tradeToUpdate);
+
+    Trades addTrade(Trades trade);
+
+    boolean removeTrade(long uniqueId);
 }
