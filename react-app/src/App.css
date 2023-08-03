@@ -1,18 +1,18 @@
 .profile-container {
     width: 400px;
-    height: 400px;
     margin: auto;
     padding: 20px;
     border: 2px solid white;
     border-radius: 10px;
+    background-color: white;
   }
   
   .profile-label {
     font-weight: bold;
-    color: white;
+    color: black;
   }
   
   .profile-value {
     margin-bottom: 10px;
-    color: white;
+    color: black;
   }
