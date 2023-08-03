@@ -41,7 +41,7 @@ public class TradeController {
     public ResponseEntity < Trades > updateTrade(@PathVariable(value = "id") Long id,
         @Valid @RequestBody Trades trade) throws ResourceNotFoundException {
 
-        final Trades updatedTrades = TradeService.updateTradeDetails(trade);
+        Trades updatedTrades = TradeService.updateTradeDetails(trade);
         return ResponseEntity.ok(updatedTrades);
     }
 

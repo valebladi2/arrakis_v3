@@ -26,19 +26,20 @@ public class BookController {
     public List<Books> getAllBooks() {
         return BookService.getAllBooks();
     }
-
+//
     @GetMapping("/books/{id}")
     public ResponseEntity <Books> getEmployeeById(@PathVariable(value = "id") Long id)
     throws ResourceNotFoundException {
         Books books = BookService.getBookById(id);
         return ResponseEntity.ok().body(books);
     }
-
+//
     @PostMapping("/books")
     public Books createBook(@Valid @RequestBody Books book) {
         return BookService.addBook(book);
     }
 
+//doesnt work when bondmaturitydate is a String
     @PutMapping("/books/{id}")
     public ResponseEntity <Books> updateBook(@PathVariable(value = "id") Long id,
         @Valid @RequestBody Books bookDetails) throws ResourceNotFoundException {
@@ -46,7 +47,7 @@ public class BookController {
         final Books updatedBooks = BookService.updateBookDetails(bookDetails);
         return ResponseEntity.ok(updatedBooks);
     }
-
+//
     @DeleteMapping("/books/{id}")
     public Map < String, Boolean > deleteBook(@PathVariable(value = "id") Long id)
     throws ResourceNotFoundException {

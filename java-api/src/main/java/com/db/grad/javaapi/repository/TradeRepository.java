@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface TradeRepository extends JpaRepository<Trades, Long>
 {
-    @Query(nativeQuery = true, value = "select * from trade")
+    @Query(nativeQuery = true, value = "select * from trades")
     List<Trades> getAllTrades();
 }
