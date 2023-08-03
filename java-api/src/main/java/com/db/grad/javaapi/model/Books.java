@@ -46,7 +46,7 @@ public class Books
         this.status = status;
     }
 
-//    @Column(name = "bondmaturitydate", nullable = false)
+    @Column(name = "bondmaturitydate", nullable = false)
 //    public void setBondMaturityDate(LocalDate bondmaturitydate){this.bondmaturitydate = bondmaturitydate;}
 //    public LocalDate getBondMaturityDate(){return bondmaturitydate;}
     public String getBondmaturitydate() {return bondmaturitydate;}
