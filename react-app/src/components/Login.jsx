@@ -40,12 +40,14 @@ const Login = () => {
 
 
     return (
+    <>
+        <div style={{ background: "linear-gradient(to bottom right, #000FFF, #000000)", minHeight: "calc(100vh)", padding: "20px" }}></div>
         <div className="container mt-5" style={{
             position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", padding: "10px"}}>
-            <h2 style={{marginLeft:"500px", marginTop:"-300px"}}>Login</h2>
+            <h2 style={{marginLeft:"500px", marginTop:"-300px", color:"white"}}>Login</h2>
             <form onSubmit={handleFormSubmit}>
                 <div className="form-group" >
-                    <label htmlFor="email" style={{marginLeft:"500px"}}>Email:</label>
+                    <label htmlFor="email" style={{marginLeft:"500px", color: "white"}}>Email:</label>
                     <input
                         type="email"
                         className="form-control"
@@ -57,7 +59,7 @@ const Login = () => {
                     {errors.email && <span className="text-danger" style={{marginLeft:"500px"}}>{errors.email}</span>}
                 </div>
                 <div className="form-group">
-                    <label htmlFor="password" style={{marginLeft:"500px"}} >Password:</label>
+                    <label htmlFor="password" style={{marginLeft:"500px", color: "white"}} >Password:</label>
                     <input
                         type="password"
                         className="form-control"
@@ -73,6 +75,7 @@ const Login = () => {
 
             </form>
         </div>
+        </>
     );
 };
 
