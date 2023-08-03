@@ -7,11 +7,11 @@ import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "trade") //change DB to trades, now is a new db
+@Table(name = "trades") //change DB to trades, now is a new db
 public class Trades
 {
     @Id
-    private long tradeId;
+    private int tradeId;
     private String tradeCurrency;
     private String tradeType;
     private LocalDate tradeSettlementDate;
@@ -22,38 +22,15 @@ public class Trades
     private String isin;
 
     @Id
-    @Column(name = "tradeId", nullable = false)
-    public long getTradeId() {return tradeId;}
-    public void setTradeId(long id) {this.tradeId = tradeId;}
+    @Column(name = "tradeid", nullable = false)
+    public int getTradeId() {return tradeId;}
+    public void setTradeId(int id) {this.tradeId = tradeId;}
 
-    @Column(name = "tradeType", nullable = false)
+    @Column(name = "tradetype", nullable = false)
     public String getTradeType() {return tradeType;}
     public void setTradeType(String type) {this.tradeType = tradeType;}
 
-    @Column(name = "tradeCurrency", nullable = false)
-    public String getTradeCurrency(){return tradeCurrency;}
-    public void setTradeCurrency(String tradeCurrency){this.tradeCurrency = tradeCurrency;}
-
-    @Column(name = "tradeSettlementDate", nullable = false)
-    //public LocalDate getTradeSettlementDate() {return tradeSettlementDate;}
-    //public void setTradeSettlementDate(int year, int month, int day) {this.tradeSettlementDate = LocalDate.of(year, month, day);}
-    public void getTradeSettlementDate(){}
-    public void setTradeSettlementDate(){}
-
-    @Column(name = "tradeStatus", nullable = false)
-    public String getTradeStatus() {return this.tradeStatus;}
-    public void setTradeStatus(String status) {this.tradeStatus = status;}
-
-    @Column(name = "tradeDate", nullable = false)
-    //public LocalDate getTradeDate() {return tradeDate;}
-    //public void setTradeDate(int year, int month, int day){LocalDate tradeDate = LocalDate.of(year, month, day);}
-    public void getTradeDate() {}
-    public void setTradeDate(){}
-    @Column(name = "quantity", nullable = false) // Column bondHolder: "quantity"
-    public int getQuantity(){return quantity;}
-    public void setQuantity(int quantity){this.quantity = quantity;}
-
-    @Column(name = "bookName", nullable = false)
+    @Column(name = "bookname", nullable = false)
     public String getBookName() {return bookName;}
     public void setBookName(String bookName) {this.bookName = bookName;}
 
@@ -64,4 +41,30 @@ public class Trades
     public void setIsin(String isin) {
         this.isin = isin;
     }
-}
+
+    @Column(name = "tradecurrency", nullable = false)
+    public String getTradeCurrency(){return tradeCurrency;}
+    public void setTradeCurrency(String tradeCurrency){this.tradeCurrency = tradeCurrency;}
+
+    @Column(name = "tradedate", nullable = false)
+    //public LocalDate getTradeDate() {return tradeDate;}
+    //public void setTradeDate(int year, int month, int day){LocalDate tradeDate = LocalDate.of(year, month, day);}
+    public void getTradeDate() {}
+    public void setTradeDate(){}
+
+    @Column(name = "tradestatus", nullable = false)
+    public String getTradeStatus() {return this.tradeStatus;}
+    public void setTradeStatus(String status) {this.tradeStatus = status;}
+
+    @Column(name = "tradesettlementdate", nullable = false)
+    //public LocalDate getTradeSettlementDate() {return tradeSettlementDate;}
+    //public void setTradeSettlementDate(int year, int month, int day) {this.tradeSettlementDate = LocalDate.of(year, month, day);}
+    public void getTradeSettlementDate(){}
+    public void setTradeSettlementDate(){}
+
+    @Column(name = "quantity", nullable = false) // Column bondHolder: "quantity"
+    public int getQuantity(){return quantity;}
+    public void setQuantity(int quantity){this.quantity = quantity;}
+
+
+    }

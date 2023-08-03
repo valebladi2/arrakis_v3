@@ -1,6 +1,5 @@
 package com.db.grad.javaapi.repository;
-
-import com.db.grad.javaapi.model.BookUsers;
+import com.db.grad.javaapi.model.Books;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -8,8 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface BookUsersRepository extends JpaRepository<BookUsers, Integer>
+public interface BooksRepository extends JpaRepository<Books, Long>
 {
-    @Query(nativeQuery = true, value = "select * from bookUsers")
-    List<BookUsers> getAllBookUsers();
+    @Query(nativeQuery = true, value = "select * from books")
+    List<Books> getAllBooks();
 }
