@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "books")
@@ -25,7 +24,7 @@ public class Book
     private double unitPrice;
 
     @Id
-    @Column(name = "book_id", nullable = false)
+    @Column(name = "bookid", nullable = false)
     public long getId() {
         return bookId;
     }
@@ -33,7 +32,7 @@ public class Book
         this.bookId = id;
     }
 
-    @Column(name = "book_name", nullable = false)
+    @Column(name = "bookname", nullable = false)
     public String getBookName() {return bookName;}
     public void setBookName(String bookName) {this.bookName = bookName;}
 
@@ -45,11 +44,11 @@ public class Book
         this.status = status;
     }
 
-    @Column(name = "bond_maturity_date", nullable = false)
+    @Column(name = "bondmaturitydate", nullable = false)
     public void setBondMaturityDate(LocalDate bondMaturityDate){this.bondMaturityDate = bondMaturityDate;}
     public LocalDate getBondMaturityDate(){return bondMaturityDate;}
 
-    @Column(name = "issuer_name", nullable = false)
+    @Column(name = "issuername", nullable = false)
     public String getIssuerName() {return issuerName;}
     public void setIssuerName(String issuerName) {this.issuerName = issuerName;}
 
@@ -57,7 +56,7 @@ public class Book
     public String getIsin() {return isin;}
     public void setIsin(String isin) {this.isin = isin;}
 
-    @Column(name = "face_value", nullable = false)
+    @Column(name = "facevalue", nullable = false)
     public int getFaceValue() {return faceValue;}
     public void setFaceValue(int faceValue) {this.faceValue = faceValue;}
 
@@ -65,16 +64,16 @@ public class Book
     public String getCusip() {return cusip;}
     public void setCusip(String cusip) {this.cusip = cusip;}
 
-    @Column(name = "bond_currency", nullable = false)
+    @Column(name = "bondcurrency", nullable = false)
     public String getBondCurrency() {return bondCurrency;}
     public void setBondCurrency(String bondCurrency) {this.bondCurrency = bondCurrency;}
 
-    @Column(name = "coupon_percent", nullable = false)
+    @Column(name = "couponpercent", nullable = false)
     public double getCouponPercent() {return couponPercent;}
 
     public void setCouponPercent(double couponPercent) {this.couponPercent = couponPercent;}
 
-    @Column(name = "unit_price", nullable = false)
+    @Column(name = "unitprice", nullable = false)
     public double getUnitPrice() {return unitPrice;}
     public void setUnitPrice(double unitPrice) {this.unitPrice = unitPrice;}
 }

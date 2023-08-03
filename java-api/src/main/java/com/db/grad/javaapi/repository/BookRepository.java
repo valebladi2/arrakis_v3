@@ -13,9 +13,5 @@ public interface BookRepository extends JpaRepository<Book, Long>
 {
     @Query(nativeQuery = true, value = "select * from books")
     List<Book> getAllBooks();
-/*
-    @Query(nativeQuery = true, value = "select * from books where bookid = :id")
-    Book findById(Book id);
- */
 
 }

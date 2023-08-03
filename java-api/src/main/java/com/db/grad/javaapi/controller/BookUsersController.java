@@ -1,9 +1,7 @@
 package com.db.grad.javaapi.controller;
 
 import com.db.grad.javaapi.exception.ResourceNotFoundException;
-import com.db.grad.javaapi.model.Book;
 import com.db.grad.javaapi.model.bookUsers;
-import com.db.grad.javaapi.service.BookHandler;
 import com.db.grad.javaapi.service.BookUsersHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

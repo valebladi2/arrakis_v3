@@ -23,27 +23,27 @@ public class Trade
     private String isin;
 
     @Id
-    @Column(name = "trade_Id", nullable = false)
+    @Column(name = "tradeid", nullable = false)
     public long getTradeId() {return tradeId;}
-    public void setTradeId(long id) {this.tradeId = tradeId;}
+    public void setTradeId(long id) {this.tradeId = id;}
 
-    @Column(name = "trade_type", nullable = false)
+    @Column(name = "tradetype", nullable = false)
     public String getTradeType() {return tradeType;}
-    public void setTradeType(String type) {this.tradeType = tradeType;}
+    public void setTradeType(String type) {this.tradeType = type;}
 
-    @Column(name = "trade_currency", nullable = false)
+    @Column(name = "tradecurrency", nullable = false)
     public String getTradeCurrency(){return tradeCurrency;}
     public void setTradeCurrency(String tradeCurrency){this.tradeCurrency = tradeCurrency;}
 
-    @Column(name = "trade_settlement_date", nullable = false)
+    @Column(name = "tradesettlementdate", nullable = false)
     public LocalDate getTradeSettlementDate() {return tradeSettlementDate;}
     public void setTradeSettlementDate(LocalDate tradeSettlementDate) {this.tradeSettlementDate = tradeSettlementDate;}
 
-    @Column(name = "trade_status", nullable = false)
+    @Column(name = "tradestatus", nullable = false)
     public String getTradeStatus() {return this.tradeStatus;}
     public void setTradeStatus(String status) {this.tradeStatus = status;}
 
-    @Column(name = "trade_date", nullable = false)
+    @Column(name = "tradedate", nullable = false)
     public LocalDate getTradeDate() {return tradeDate;}
     public void setTradeDate(LocalDate tradeDate){this.tradeDate = tradeDate;}
 
@@ -51,7 +51,7 @@ public class Trade
     public int getQuantity(){return quantity;}
     public void setQuantity(int quantity){this.quantity = quantity;}
 
-    @Column(name = "book_name", nullable = false)
+    @Column(name = "bookname", nullable = false)
     public String getBookName() {return bookName;}
     public void setBookName(String bookName) {this.bookName = bookName;}
 

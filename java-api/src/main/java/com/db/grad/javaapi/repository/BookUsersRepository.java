@@ -1,6 +1,5 @@
 package com.db.grad.javaapi.repository;
 
-import com.db.grad.javaapi.model.Trade;
 import com.db.grad.javaapi.model.bookUsers;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
