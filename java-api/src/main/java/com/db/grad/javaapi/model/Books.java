@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "Book")
-public class Book
+public class Books
 {
     @Id
     private long bookId;
@@ -46,9 +46,10 @@ public class Book
     }
 
     @Column(name = "bondMaturityDate", nullable = false)
-    public void setBondMaturityDate(int year, int month, int day){this.bondMaturityDate = LocalDate.of(year, month, day);}
-    public LocalDate getBondMaturityDate(){return bondMaturityDate;}
-
+    //public void setBondMaturityDate(int year, int month, int day){this.bondMaturityDate = LocalDate.of(year, month, day);}
+    //public LocalDate getBondMaturityDate(){return bondMaturityDate;}
+    public void setBondMaturityDate(){}
+    public void getBondMaturityDate(){}
     @Column(name = "issuerName", nullable = false)
     public String getIssuerName() {return issuerName;}
     public void setIssuerName(String issuerName) {this.issuerName = issuerName;}
