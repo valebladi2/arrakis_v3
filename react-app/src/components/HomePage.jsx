@@ -22,7 +22,8 @@ const Homepage = () => {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-      <h1>Welcome to My Homepage</h1>
+        <div style={{ background: "linear-gradient(to bottom right, #000FFF, #000000)", minHeight: "calc(100vh - 56px)", padding: "20px" }}></div>
+        <h1 style={{position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", padding: "10px", color: "#FFFFFF"}}>Welcome "username" !</h1>
     </>
   );
 };
