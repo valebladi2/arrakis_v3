@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "trade")
+@Table(name = "trade") //change DB to trades, now is a new db
 public class Trades
 {
     @Id
