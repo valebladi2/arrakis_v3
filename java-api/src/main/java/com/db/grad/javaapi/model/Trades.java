@@ -14,9 +14,9 @@ public class Trades
     private int tradeId;
     private String tradeCurrency;
     private String tradeType;
-    private LocalDate tradeSettlementDate;
+    private String tradeSettlementDate;
     private String tradeStatus;
-    private LocalDate tradeDate;
+    private String tradeDate;
     private int quantity;
     private String bookName;
     private String isin;
@@ -47,20 +47,17 @@ public class Trades
     public void setTradeCurrency(String tradeCurrency){this.tradeCurrency = tradeCurrency;}
 
     @Column(name = "tradedate", nullable = false)
-    //public LocalDate getTradeDate() {return tradeDate;}
-    //public void setTradeDate(int year, int month, int day){LocalDate tradeDate = LocalDate.of(year, month, day);}
-    public void getTradeDate() {}
-    public void setTradeDate(){}
+    public String getTradeDate() {return tradeDate;}
+    public void setTradeDate(String tradeDate){this.tradeDate = tradeDate;}
 
     @Column(name = "tradestatus", nullable = false)
     public String getTradeStatus() {return this.tradeStatus;}
     public void setTradeStatus(String status) {this.tradeStatus = status;}
 
     @Column(name = "tradesettlementdate", nullable = false)
-    //public LocalDate getTradeSettlementDate() {return tradeSettlementDate;}
-    //public void setTradeSettlementDate(int year, int month, int day) {this.tradeSettlementDate = LocalDate.of(year, month, day);}
-    public void getTradeSettlementDate(){}
-    public void setTradeSettlementDate(){}
+    public String getTradeSettlementDate() {return tradeSettlementDate;}
+    public void setTradeSettlementDate(String tradeSettlementDate) {this.tradeSettlementDate = tradeSettlementDate;}
+
 
     @Column(name = "quantity", nullable = false) // Column bondHolder: "quantity"
     public int getQuantity(){return quantity;}

@@ -12,10 +12,10 @@ import java.util.Date;
 public class Books
 {
     @Id
-    private long bookId;
+    private int bookId;
     private String bookName;
     private String status;
-    private LocalDate bondMaturityDate;
+    private String bondMaturityDate;
     private String issuerName;
     private String isin;
     private int faceValue;
@@ -26,10 +26,10 @@ public class Books
 
     @Id
     @Column(name = "bookid", nullable = false)
-    public long getId() {
+    public int getId() {
         return bookId;
     }
-    public void setId(long id) {
+    public void setId(int id) {
         this.bookId = id;
     }
 
@@ -46,10 +46,8 @@ public class Books
     }
 
     @Column(name = "bondmaturitydate", nullable = false)
-    //public void setBondMaturityDate(int year, int month, int day){this.bondMaturityDate = LocalDate.of(year, month, day);}
-    //public LocalDate getBondMaturityDate(){return bondMaturityDate;}
-    public void setBondMaturityDate(){}
-    public void getBondMaturityDate(){}
+    public String setBondMaturityDate(){return bondMaturityDate;}
+    public void getBondMaturityDate(String bondMaturityDate){ this.bondMaturityDate = bondMaturityDate;}
     @Column(name = "issuername", nullable = false)
     public String getIssuerName() {return issuerName;}
     public void setIssuerName(String issuerName) {this.issuerName = issuerName;}
