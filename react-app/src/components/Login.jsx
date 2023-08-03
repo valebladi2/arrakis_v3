@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import Image from "../images/Deutsche-Bank-Logo.png";
+import Nav from "react-bootstrap/Nav";
 
 
 const Login = () => {
@@ -41,10 +45,19 @@ const Login = () => {
 
     return (
     <>
+        <Navbar class="navbar navbar-light" style={{backgroundColor: "#e3f2fd"}}>
+            <Container>
+                <Navbar.Brand>
+                    <img src={Image} width="100px" height="50px" />
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+            </Container>
+        </Navbar>
         <div style={{ background: "linear-gradient(to bottom right, #000FFF, #000000)", minHeight: "calc(100vh)", padding: "20px" }}></div>
         <div className="container mt-5" style={{
             position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", padding: "10px"}}>
-            <h2 style={{marginLeft:"500px", marginTop:"-300px", color:"white"}}>Login</h2>
+            <h2 style={{marginLeft:"500px", marginTop:"-290px", color:"white"}}>Login</h2>
             <form onSubmit={handleFormSubmit}>
                 <div className="form-group" >
                     <label htmlFor="email" style={{marginLeft:"500px", color: "white"}}>Email:</label>
