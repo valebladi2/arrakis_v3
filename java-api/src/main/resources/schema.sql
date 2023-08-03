@@ -46,4 +46,14 @@ CREATE TABLE trades (
     PRIMARY KEY (tradeid)
 );
 
+CREATE table credentials (
+                             CREDENTIALS_ID int not null auto_increment,
+                             FIRST_NAME varchar(100) not null,
+                             LAST_NAME varchar(100) not null,
+                             EMAIL varchar(100) not null,
+                             PASSWORD varchar(100) not null,
+                             PRIMARY KEY (CREDENTIALS_ID),
+                             FOREIGN KEY (CREDENTIALS_ID) references users (USERID)
+);
+
 
