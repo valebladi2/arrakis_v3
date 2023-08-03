@@ -49,8 +49,8 @@ public class Books
 //    @Column(name = "bondmaturitydate", nullable = false)
 //    public void setBondMaturityDate(LocalDate bondmaturitydate){this.bondmaturitydate = bondmaturitydate;}
 //    public LocalDate getBondMaturityDate(){return bondmaturitydate;}
-//    public String getBondmaturitydate() {return bondmaturitydate;}
-//    public void setBondmaturitydate(String bondmaturitydate) {this.bondmaturitydate = bondmaturitydate;}
+    public String getBondmaturitydate() {return bondmaturitydate;}
+    public void setBondmaturitydate(String bondmaturitydate) {this.bondmaturitydate = bondmaturitydate;}
 
     @Column(name = "issuername", nullable = false)
     public String getIssuerName() {return issuername;}
