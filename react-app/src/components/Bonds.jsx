@@ -20,6 +20,7 @@ export const Bonds = () => {
                   </Navbar.Collapse>
               </Container>
           </Navbar>
+      <div style={{ background: "linear-gradient(to bottom right, #000FFF, #000000)", minHeight: "calc(100vh - 56px)", padding: "20px" }}></div>
       <div className="card" style={{width: "18rem"}}>
         <div className="card-body">
           <h5 className="card-title">Card title</h5>

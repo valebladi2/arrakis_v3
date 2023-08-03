@@ -1,1 +1,18 @@
-
+.profile-container {
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+  }
+  
+  .profile-label {
+    font-weight: bold;
+    color: white;
+  }
+  
+  .profile-value {
+    margin-bottom: 10px;
+    color: white;
+  }

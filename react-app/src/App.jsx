@@ -6,6 +6,7 @@ import { Bonds } from './components/Bonds';
 import { Profile } from './components/Profile';
 import {Route, Routes} from 'react-router-dom';
 import Register from "./components/Register";
+import './App.css'
 
 const App = () => {
 

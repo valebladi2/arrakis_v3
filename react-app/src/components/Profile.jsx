@@ -6,8 +6,14 @@ import Nav from "react-bootstrap/Nav";
 
 export const Profile = () => {
 
+  const user = {
+    firstName: 'John',
+    lastName: 'Doe',
+    email: 'johndoe@example.com',
+  };
+
   return (
-      <>
+    <>
       <Navbar bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary">
         <Container>
           <Navbar.Brand href="/home"><b>Home</b></Navbar.Brand>
@@ -21,7 +27,19 @@ export const Profile = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    <>Profile</>
+      <div style={{ background: "linear-gradient(to bottom right, #000FFF, #000000)", minHeight: "calc(100vh - 56px)", padding: "20px" }}></div>
+      <div className="profile-container" style={{
+            position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", padding: "10px"}}>
+        <h2 style={{color: "white"}}>User Profile </h2>
+        <div className="profile-label">First Name:</div>
+        <div className="profile-value">{user.firstName}</div>
+
+        <div className="profile-label">Last Name:</div>
+        <div className="profile-value">{user.lastName}</div>
+
+        <div className="profile-label">Email:</div>
+        <div className="profile-value">{user.email}</div>
+      </div>
     </>
   )
 }
