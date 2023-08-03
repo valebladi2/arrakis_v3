@@ -2,7 +2,7 @@ import React from 'react'
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-
+import Image from './../images/Deutsche-Bank-Logo.png'
 
 export const Profile = () => {
 
@@ -17,7 +17,7 @@ export const Profile = () => {
       <Navbar class="navbar navbar-light" style={{backgroundColor: "#e3f2fd"}}>
         <Container>
           <Navbar.Brand href="/home">
-            <img src={require('G:\\Coding Challenge\\arrakis_v3\\react-app\\src\\images\\Deutsche-Bank-Logo.png')} width="100px" height="50px" />
+            <img src={Image} width="100px" height="50px" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
