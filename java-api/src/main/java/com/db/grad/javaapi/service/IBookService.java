@@ -1,13 +1,16 @@
 package com.db.grad.javaapi.service;
 
 import com.db.grad.javaapi.model.Books;
-import com.db.grad.javaapi.repository.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 public interface IBookService {
-    public List<Books> getAllBooks();
+    List<Books> getAllBooks();
+    Books getBookById(long uniqueId);
+    Books addBook(Books theBook);
+
+    Books updateBookDetails(Books bookDetails);
+
+    boolean removeBook(Long id);
 
 }
