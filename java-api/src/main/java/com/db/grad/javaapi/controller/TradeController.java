@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,13 +34,13 @@ public class TradeController {
     }
 
     @PostMapping("/trades")
-    public Trades createTrade(@Valid @RequestBody Trades trade) {
+    public Trades createTrade(@RequestBody Trades trade) {
         return TradeService.addTrade(trade);
     }
 
     @PutMapping("/trades/{id}")
     public ResponseEntity < Trades > updateTrade(@PathVariable(value = "id") Long id,
-        @Valid @RequestBody Trades trade) throws ResourceNotFoundException {
+         @RequestBody Trades trade) throws ResourceNotFoundException {
 
         final Trades updatedTrades = TradeService.updateTradeDetails(trade);
         return ResponseEntity.ok(updatedTrades);

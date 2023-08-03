@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class UsersHandler implements UsersService {
+public class UsersHandler {
     private UsersRepository itsUserRepo;
 
     @Autowired
@@ -15,7 +15,7 @@ public class UsersHandler implements UsersService {
     {
         itsUserRepo = userRepo;
     }
-    @Override
+
     public List<User> getAllUsers()
     {
         return itsUserRepo.findAllUsers();
