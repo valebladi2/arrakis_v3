@@ -13,8 +13,6 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1")
-@CrossOrigin(origins = "http://localhost:3000")
 public class TradeController {
     private TradeHandler TradeService;
 
@@ -43,7 +41,7 @@ public class TradeController {
     public ResponseEntity < Trades > updateTrade(@PathVariable(value = "id") Long id,
         @Valid @RequestBody Trades trade) throws ResourceNotFoundException {
 
-        final Trades updatedTrades = TradeService.updateTradeDetails(trade);
+        Trades updatedTrades = TradeService.updateTradeDetails(trade);
         return ResponseEntity.ok(updatedTrades);
     }
 
