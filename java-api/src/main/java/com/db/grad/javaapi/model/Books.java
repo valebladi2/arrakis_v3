@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class Books
 {
     @Id
-    private long bookId;
+    private int bookId;
     private String bookName;
     private String status;
     private String bondmaturitydate;
@@ -28,9 +28,10 @@ public class Books
     @Id
     @Column(name = "bookid", nullable = false)
     public long getId() {
+
         return bookId;
     }
-    public void setId(long id) {
+    public void setId(int id) {
         this.bookId = id;
     }
 
@@ -47,6 +48,7 @@ public class Books
     }
 
     @Column(name = "bondmaturitydate", nullable = false)
+
 //    public void setBondMaturityDate(LocalDate bondmaturitydate){this.bondmaturitydate = bondmaturitydate;}
 //    public LocalDate getBondMaturityDate(){return bondmaturitydate;}
     public String getBondmaturitydate() {return bondmaturitydate;}
@@ -74,7 +76,6 @@ public class Books
 
     @Column(name = "couponpercent", nullable = false)
     public double getCouponPercent() {return couponpercent;}
-
     public void setCouponPercent(double couponPercent) {this.couponpercent = couponPercent;}
 
     @Column(name = "unitprice", nullable = false)

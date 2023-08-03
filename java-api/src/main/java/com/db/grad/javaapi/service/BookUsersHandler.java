@@ -1,7 +1,7 @@
 package com.db.grad.javaapi.service;
 
 import com.db.grad.javaapi.model.BookUsers;
-import com.db.grad.javaapi.repository.BookUsersRepository;
+import com.db.grad.javaapi.repository.BooksUsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +10,10 @@ import java.util.Optional;
 
 @Service
 public class BookUsersHandler implements IBookUsersService{
-    private BookUsersRepository bookRepo;
+    private BooksUsersRepository bookRepo;
 
     @Autowired
-    public BookUsersHandler( BookUsersRepository bookRep ) {this.bookRepo = bookRep;}
+    public BookUsersHandler( BooksUsersRepository bookRep ) {this.bookRepo = bookRep;}
 
     @Override
     public List<BookUsers> getAllBookUsers() {return bookRepo.getAllBookUsers();}

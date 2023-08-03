@@ -14,7 +14,7 @@ CREATE TABLE books (
     bookid INT NOT NULL AUTO_INCREMENT,
     bookname VARCHAR(100) NOT NULL,
     status VARCHAR(50) NOT NULL,
-    bondmaturitydate DATE,
+    bondmaturitydate VARCHAR(50),
     issuername VARCHAR(200) NOT NULL,
     isin VARCHAR(100) NOT NULL,
     facevalue INT NOT NULL,
@@ -39,11 +39,21 @@ CREATE TABLE trades (
     bookname VARCHAR(100) NOT NULL,
     isin VARCHAR(100) NOT NULL,
     tradecurrency VARCHAR(250) NOT NULL,
-    tradedate DATE NOT NULL,
+    tradedate VARCHAR(50) NOT NULL,
     tradestatus VARCHAR(50) NOT NULL,
-    tradesettlementdate DATE NOT NULL,
+    tradesettlementdate VARCHAR(50) NOT NULL,
     quantity INT NOT NULL,
     PRIMARY KEY (tradeid)
+);
+
+CREATE table credentials (
+                             CREDENTIALS_ID int not null auto_increment,
+                             FIRST_NAME varchar(100) not null,
+                             LAST_NAME varchar(100) not null,
+                             EMAIL varchar(100) not null,
+                             PASSWORD varchar(100) not null,
+                             PRIMARY KEY (CREDENTIALS_ID),
+                             FOREIGN KEY (CREDENTIALS_ID) references users (USERID)
 );
 
 

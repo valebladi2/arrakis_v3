@@ -12,4 +12,5 @@ public interface IBookUsersService {
     BookUsers addBookUsers(BookUsers theBookUsers);
     BookUsers updateBookUsersDetails(BookUsers bookDetails);
     boolean removeBookUser(int id);
+
 }

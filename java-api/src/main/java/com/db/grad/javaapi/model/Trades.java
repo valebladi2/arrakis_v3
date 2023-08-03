@@ -14,9 +14,9 @@ public class Trades
     private long tradeid;
     private String tradeCurrency;
     private String tradeType;
-    private LocalDate tradeSettlementDate;
+    private String tradeSettlementDate;
     private String tradeStatus;
-    private LocalDate tradeDate;
+    private String tradeDate;
     private int quantity;
     private String bookname;
     private String isin;
@@ -30,6 +30,18 @@ public class Trades
     public String getTradeType() {return tradeType;}
     public void setTradeType(String type) {this.tradeType = type;}
 
+    @Column(name = "bookname", nullable = false)
+    public String getBookName() {return bookName;}
+    public void setBookName(String bookName) {this.bookName = bookName;}
+
+    @Column(name = "isin", nullable = false)
+    public String getIsin() {
+        return isin;
+    }
+    public void setIsin(String isin) {
+        this.isin = isin;
+    }
+  
     @Column(name = "tradecurrency", nullable = false)
     public String getTradeCurrency(){return tradeCurrency;}
     public void setTradeCurrency(String tradeCurrency){this.tradeCurrency = tradeCurrency;}
@@ -49,16 +61,4 @@ public class Trades
     @Column(name = "quantity", nullable = false) // Column bondHolder: "quantity"
     public int getQuantity(){return quantity;}
     public void setQuantity(int quantity){this.quantity = quantity;}
-
-    @Column(name = "bookname", nullable = false)
-    public String getBookName() {return bookname;}
-    public void setBookName(String bookName) {this.bookname = bookName;}
-
-    @Column(name = "isin", nullable = false)
-    public String getIsin() {
-        return isin;
     }
-    public void setIsin(String isin) {
-        this.isin = isin;
-    }
-}
