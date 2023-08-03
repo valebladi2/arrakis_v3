@@ -7,9 +7,11 @@ import Nav from "react-bootstrap/Nav";
 const Homepage = () => {
   return (
       <>
-        <Navbar bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary">
+        <Navbar class="navbar navbar-light" style={{backgroundColor: "#e3f2fd"}}>
           <Container>
-            <Navbar.Brand href="/home"><b>Home</b></Navbar.Brand>
+            <Navbar.Brand href="/home">
+              <img src={require('G:\\Coding Challenge\\arrakis_v3\\react-app\\src\\images\\Deutsche-Bank-Logo.png')} width="100px" height="50px" />
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
