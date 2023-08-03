@@ -15,7 +15,8 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/v1")
 @CrossOrigin(origins = "http://localhost:3000")
-public class DogsController {
+public class
+DogsController {
     private DogHandler dogsService;
 
     @Autowired
