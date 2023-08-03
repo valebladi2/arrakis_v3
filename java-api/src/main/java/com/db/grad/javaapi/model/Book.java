@@ -33,7 +33,7 @@ public class Book
         this.bookId = id;
     }
 
-    @Column(name = "bookName", nullable = false)
+    @Column(name = "book_name", nullable = false)
     public String getBookName() {return bookName;}
     public void setBookName(String bookName) {this.bookName = bookName;}
 
@@ -45,11 +45,11 @@ public class Book
         this.status = status;
     }
 
-    @Column(name = "bondMaturityDate", nullable = false)
-    public void setBondMaturityDate(int year, int month, int day){this.bondMaturityDate = LocalDate.of(year, month, day);}
+    @Column(name = "bond_maturity_date", nullable = false)
+    public void setBondMaturityDate(LocalDate bondMaturityDate){this.bondMaturityDate = bondMaturityDate;}
     public LocalDate getBondMaturityDate(){return bondMaturityDate;}
 
-    @Column(name = "issuerName", nullable = false)
+    @Column(name = "issuer_name", nullable = false)
     public String getIssuerName() {return issuerName;}
     public void setIssuerName(String issuerName) {this.issuerName = issuerName;}
 
@@ -57,7 +57,7 @@ public class Book
     public String getIsin() {return isin;}
     public void setIsin(String isin) {this.isin = isin;}
 
-    @Column(name = "faceValue", nullable = false)
+    @Column(name = "face_value", nullable = false)
     public int getFaceValue() {return faceValue;}
     public void setFaceValue(int faceValue) {this.faceValue = faceValue;}
 
@@ -65,16 +65,16 @@ public class Book
     public String getCusip() {return cusip;}
     public void setCusip(String cusip) {this.cusip = cusip;}
 
-    @Column(name = "bondCurrency", nullable = false)
+    @Column(name = "bond_currency", nullable = false)
     public String getBondCurrency() {return bondCurrency;}
     public void setBondCurrency(String bondCurrency) {this.bondCurrency = bondCurrency;}
 
-    @Column(name = "couponPercent", nullable = false)
+    @Column(name = "coupon_percent", nullable = false)
     public double getCouponPercent() {return couponPercent;}
 
     public void setCouponPercent(double couponPercent) {this.couponPercent = couponPercent;}
 
-    @Column(name = "unitPrice", nullable = false)
+    @Column(name = "unit_price", nullable = false)
     public double getUnitPrice() {return unitPrice;}
     public void setUnitPrice(double unitPrice) {this.unitPrice = unitPrice;}
 }

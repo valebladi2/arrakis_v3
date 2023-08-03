@@ -13,4 +13,5 @@ public interface BookUsersRepository extends JpaRepository<bookUsers, Integer>
 {
     @Query(nativeQuery = true, value = "select * from bookUsers")
     List<bookUsers> getAllBookUsers();
+
 }

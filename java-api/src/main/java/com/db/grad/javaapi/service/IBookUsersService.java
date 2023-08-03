@@ -11,4 +11,8 @@ import java.util.List;
 @Service
 public interface IBookUsersService {
     public List<bookUsers> getAllBookUsers();
+    public bookUsers getBookUsersById(int uniqueId);
+    public bookUsers addBookUsers(bookUsers theBookUsers);
+    public bookUsers updateBookUsersDetails(bookUsers bookDetails);
+    public boolean removeBookUser(int id);
 }

@@ -15,7 +15,7 @@ public class User
     private String type;
 
     @Id //Set the user_id as the ID for the table
-    @Column(name = "userId", nullable = false)
+    @Column(name = "user_Id", nullable = false)
     public long getUserId() {return userId;}
     public void setUserId(long userId){this.userId = userId;}
 
@@ -23,7 +23,7 @@ public class User
     public String getType() {return type;}
     public void setType(String type){this.type = type;}
 
-    @Column(name = "bondHolder", nullable = false) // bondHolder of User
+    @Column(name = "bond_holder", nullable = false) // bondHolder of User
     public String getBondHolder() {
         return bondHolder;
     }

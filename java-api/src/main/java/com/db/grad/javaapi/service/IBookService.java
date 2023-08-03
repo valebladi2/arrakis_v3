@@ -10,5 +10,11 @@ import java.util.List;
 
 public interface IBookService {
     public List<Book> getAllBooks();
+    public Book getBookById(long uniqueId);
+    public Book addBook(Book theBook);
+
+    public Book updateBookDetails(Book bookDetails);
+
+    public boolean removeBook(Long id);
 
 }

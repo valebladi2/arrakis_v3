@@ -20,16 +20,10 @@ public class DogHandler implements IDogsService
     }
 
     @Override
-    public List<Dog> getAllDogs()
-    {
-        return itsDogsRepo.findAll();
-    }
+    public List<Dog> getAllDogs() {return itsDogsRepo.findAll();}
 
     @Override
-    public Dog addDog(Dog theDog)
-    {
-        return itsDogsRepo.save( theDog );
-    }
+    public Dog addDog(Dog theDog) {return itsDogsRepo.save( theDog );}
 
     @Override
     public long getNoOfDogs()
@@ -53,10 +47,7 @@ public class DogHandler implements IDogsService
     }
 
     @Override
-    public Dog getDogById(long uniqueId)
-    {
-        return itsDogsRepo.findById(uniqueId).get();
-    }
+    public Dog getDogById(long uniqueId) {return itsDogsRepo.findById(uniqueId).get();}
 
     @Override
     public Dog getDogByName(String dogsName )
