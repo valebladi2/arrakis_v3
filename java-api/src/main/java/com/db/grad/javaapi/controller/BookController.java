@@ -2,11 +2,10 @@ package com.db.grad.javaapi.controller;
 
 import com.db.grad.javaapi.exception.ResourceNotFoundException;
 import com.db.grad.javaapi.model.Books;
-import com.db.grad.javaapi.service.BookHandler;
+import com.db.grad.javaapi.service.BooksHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,14 +13,15 @@ import java.util.Map;
 
 @RestController
 public class BookController {
-    private BookHandler BookService;
+    private BooksHandler BookService;
 
     @Autowired
-    public BookController(BookHandler bs)
+    public BookController(BooksHandler bs)
     {
         BookService = bs;
     }
 
+    /*
     @GetMapping("/books")
     public List<Books> getAllBooks() {
         return BookService.getAllBooks();
@@ -35,14 +35,14 @@ public class BookController {
     }
 //
     @PostMapping("/books")
-    public Books createBook( @RequestBody Books book) {
+    public Books createBook(@RequestBody Books book) {
         return BookService.addBook(book);
     }
 
 //doesnt work when bondmaturitydate is a String
     @PutMapping("/books/{id}")
     public ResponseEntity <Books> updateBook(@PathVariable(value = "id") Long id,
-         @RequestBody Books bookDetails) throws ResourceNotFoundException {
+        @RequestBody Books bookDetails) throws ResourceNotFoundException {
 
         final Books updatedBooks = BookService.updateBookDetails(bookDetails);
         return ResponseEntity.ok(updatedBooks);
@@ -61,4 +61,5 @@ public class BookController {
 
         return response;
     }
+    */
 }

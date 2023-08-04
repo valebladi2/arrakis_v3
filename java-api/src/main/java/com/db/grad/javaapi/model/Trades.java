@@ -31,8 +31,8 @@ public class Trades
     public void setTradeType(String type) {this.tradeType = type;}
 
     @Column(name = "bookname", nullable = false)
-    public String getBookName() {return bookName;}
-    public void setBookName(String bookName) {this.bookName = bookName;}
+    public String getBookName() {return bookname;}
+    public void setBookName(String bookName) {this.bookname = bookName;}
 
     @Column(name = "isin", nullable = false)
     public String getIsin() {
@@ -47,16 +47,16 @@ public class Trades
     public void setTradeCurrency(String tradeCurrency){this.tradeCurrency = tradeCurrency;}
 
     @Column(name = "tradesettlementdate", nullable = false)
-    public LocalDate getTradeSettlementDate() {return tradeDate;}
-    public void setTradeSettlementDate(LocalDate tradeSettlementDate) {this.tradeSettlementDate = tradeSettlementDate;}
+    public String getTradeSettlementDate() {return tradeDate;}
+    public void setTradeSettlementDate(String tradeSettlementDate) {this.tradeSettlementDate = tradeSettlementDate;}
 
     @Column(name = "tradestatus", nullable = false)
     public String getTradeStatus() {return this.tradeStatus;}
     public void setTradeStatus(String status) {this.tradeStatus = status;}
 
     @Column(name = "tradedate", nullable = false)
-    public LocalDate getTradeDate() {return tradeDate;}
-    public void setTradeDate(LocalDate tradeDate){this.tradeDate = tradeDate;}
+    public String getTradeDate() {return tradeDate;}
+    public void setTradeDate(String tradeDate){this.tradeDate = tradeDate;}
 
     @Column(name = "quantity", nullable = false) // Column bondHolder: "quantity"
     public int getQuantity(){return quantity;}
