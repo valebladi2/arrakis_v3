@@ -13,7 +13,16 @@ public interface BooksRepository extends JpaRepository<Books, Long>
     @Query(nativeQuery = true, value = "select * from books")
     List<Books> getAllBooks();
 
+
     //select bookid, bookname,status, bondmaturitydate, issuername, isin, facevalue, cusip, bondcurrency, couponpercent, unitprice, DAY_OF_WEEK(CAST(PARSEDATETIME( BONDMATURITYDATE,'dd-MM-yy') as DATE) ) from books where  CAST(PARSEDATETIME( BONDMATURITYDATE,'dd-MM-yy') as DATE)  between  CAST('2021-08-09' as DATE)-7  and CAST('2021-08-09' as DATE) +7 and status = 'active';
     @Query(nativeQuery = true, value = "select * from books where  CAST(PARSEDATETIME(BONDMATURITYDATE,'dd-MM-yy') as DATE)  between  CAST(:date as DATE)-7  and CAST(:date as DATE) +7 and status = 'active'")
-    List<Books> getBondsPlusMin(String date);
+    List<String> getBondsPlusMin(String date);
+
+
+    @Query(nativeQuery = true, value = "select BONDMATURITYDATE from books")
+    List<String> getMatDate();
+
+
+
+
 }

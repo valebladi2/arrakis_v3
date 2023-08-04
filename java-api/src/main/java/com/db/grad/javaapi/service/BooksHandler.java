@@ -17,7 +17,9 @@ public class BooksHandler {
 
     public List<Books> getAllBooks() {return bookRepo.getAllBooks();}
 
-    public List<Books> getBondsPlusMinus(String date) {return bookRepo.getBondsPlusMin(date);}
+    public List<String> getBondsPlusMinus(String date) {return bookRepo.getBondsPlusMin(date);}
+
+    public List<String> getMatDate() {return bookRepo.getMatDate();}
 
 
 }
