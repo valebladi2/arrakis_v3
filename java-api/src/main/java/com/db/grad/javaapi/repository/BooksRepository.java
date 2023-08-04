@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface BooksRepository extends JpaRepository<Books, Long>
 {
-    @Query(nativeQuery = true, value = "select * from books")
+    @Query(nativeQuery = true, value = "select * from books where status= 'active'")
     List<Books> getAllBooks();
 
 
