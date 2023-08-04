@@ -70,5 +70,3 @@ INSERT INTO booksUsers(bondholder,  bookname) VALUES   ('Barclays'    ,  'Tradin
 INSERT INTO booksUsers(bondholder,  bookname) VALUES   ('British Telecom' ,  'Trading_book_6')  ;
 INSERT INTO booksUsers(bondholder,  bookname) VALUES   ('Pension Holdings'          ,  'Trading_book_6')  ;
 INSERT INTO booksUsers(bondholder,  bookname) VALUES   ('Zurich Pension fund 4'   ,  'Trading_book_4')  ;
-
-
