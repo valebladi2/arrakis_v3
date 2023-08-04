@@ -11,6 +11,8 @@ public class User {
     @Id
     private int userId;
     private String bondHolder;
+    private String email;
+    private String password;
     private String type;
 
     @Id //Set the user_id as the ID for the table
@@ -39,6 +41,23 @@ public class User {
 
     public void setBondHolder(String bondHolder) {
         this.bondHolder = bondHolder;
+    }
+
+    @Column(name = "email", nullable = false) // bondHolder of User
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    @Column(name = "password", nullable = false) // bondHolder of User
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 }

@@ -6,6 +6,8 @@ DROP TABLE IF EXISTS trades;
 CREATE TABLE users (
     userid INT NOT NULL AUTO_INCREMENT,
     bondholder VARCHAR(100) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(100) NOT NULL,
     type VARCHAR(50) NOT NULL,
     PRIMARY KEY (userid)
 );
@@ -27,8 +29,8 @@ CREATE TABLE books (
 
 CREATE TABLE booksusers (
     bookuserid int AUTO_INCREMENT,
-    bondholder VARCHAR(250) NOT NULL,
-    bookname VARCHAR(250) NOT NULL,
+    userid int NOT NULL,
+    bookid int NOT NULL,
     PRIMARY KEY (bookuserid)
 );
 
