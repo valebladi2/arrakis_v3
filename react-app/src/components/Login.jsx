@@ -4,15 +4,27 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "../images/Deutsche-Bank-Logo.png";
+import {auth} from "../config/firebase";
+import {getAuth,signInWithEmailAndPassword } from "firebase/auth";
+
 import Nav from "react-bootstrap/Nav";
-
-
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
 
-    let navigate = useNavigate();
+    console.log(auth?.currentUser?.email);
+    console.log(auth?.currentUser?.photoURL);
+    const signIn = async () => {
+        try {
+            await  signInWithEmailAndPassword(auth, email, password);
+        } catch (error){
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        }
+    };
+
+        let navigate = useNavigate();
     const routeChange =() =>{
         let path = '/register'
         navigate(path)
@@ -83,7 +95,7 @@ const Login = () => {
                     />
                     {errors.password && <span className="text-danger" style={{marginLeft:"500px"}}>{errors.password}</span>}
                 </div>
-                <button type="submit" className="btn btn-primary" style={{marginTop:"10px", marginLeft:"500px"}}>Login</button>
+                <button type="submit" className="btn btn-primary" style={{marginTop:"10px", marginLeft:"500px"}} onClick={signIn} >Login</button>
                 <button type="submit" className="btn btn-primary" onClick={routeChange} style={{marginTop:"10px", marginLeft:"150px"}}>Register</button>
 
             </form>
