@@ -10,19 +10,19 @@ import java.util.Date;
 public class BookUsers {
     @Id
     private int bookUserId;
-    private String bondHolder;
-    private String bookName;
+    private int userid;
+    private int bookid;
 
     @Column(name = "bookuserid", nullable = false)
     public int getBookUserId() {return bookUserId;}
     public void setBookUserId(int bookUserId) {this.bookUserId = bookUserId;}
 
-    @Column(name = "bondholder", nullable = false)
-    public String getBondHolder() {return bondHolder;}
-    public void setBondHolder(String bondHolder) {this.bondHolder = bondHolder;}
+    @Column(name = "userid", nullable = false)
+    public int getBondHolder() {return userid;}
+    public void setBondHolder(int bondHolder) {this.userid = userid;}
 
-    @Column(name = "bookname", nullable = false)
-    public String getBookName() {return bookName;}
-    public void setBookName(String bookName) {this.bookName = bookName;}
+    @Column(name = "bookid", nullable = false)
+    public int getBookName() {return bookid;}
+    public void setBookName(int bookName) {this.bookid = bookid;}
 
 }

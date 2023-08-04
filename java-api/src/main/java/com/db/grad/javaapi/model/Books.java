@@ -27,7 +27,7 @@ public class Books
 
     @Id
     @Column(name = "bookid", nullable = false)
-    public long getId() {
+    public int getId() {
 
         return bookId;
     }
