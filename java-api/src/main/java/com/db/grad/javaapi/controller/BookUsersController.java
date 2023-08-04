@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,13 +33,13 @@ public class BookUsersController {
     }
 
     @PostMapping("/bookUsers")
-    public BookUsers createBook(@Valid @RequestBody BookUsers bookUser) {
+    public BookUsers createBook( @RequestBody BookUsers bookUser) {
         return BookUsersService.addBookUsers(bookUser);
     }
 
     @PutMapping("/bookUsers/{id}")
     public ResponseEntity < BookUsers > updateBook(@PathVariable(value = "id") Long id,
-        @Valid @RequestBody BookUsers bookDetails) throws ResourceNotFoundException {
+         @RequestBody BookUsers bookDetails) throws ResourceNotFoundException {
 
         final BookUsers updatedBooks = BookUsersService.updateBookUsersDetails(bookDetails);
         return ResponseEntity.ok(updatedBooks);

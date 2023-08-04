@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,14 +35,14 @@ public class BookController {
     }
 //
     @PostMapping("/books")
-    public Books createBook(@Valid @RequestBody Books book) {
+    public Books createBook( @RequestBody Books book) {
         return BookService.addBook(book);
     }
 
 //doesnt work when bondmaturitydate is a String
     @PutMapping("/books/{id}")
     public ResponseEntity <Books> updateBook(@PathVariable(value = "id") Long id,
-        @Valid @RequestBody Books bookDetails) throws ResourceNotFoundException {
+         @RequestBody Books bookDetails) throws ResourceNotFoundException {
 
         final Books updatedBooks = BookService.updateBookDetails(bookDetails);
         return ResponseEntity.ok(updatedBooks);
