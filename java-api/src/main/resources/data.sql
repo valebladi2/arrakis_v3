@@ -71,35 +71,4 @@ INSERT INTO booksUsers(bondholder,  bookname) VALUES   ('British Telecom' ,  'Tr
 INSERT INTO booksUsers(bondholder,  bookname) VALUES   ('Pension Holdings'          ,  'Trading_book_6')  ;
 INSERT INTO booksUsers(bondholder,  bookname) VALUES   ('Zurich Pension fund 4'   ,  'Trading_book_4')  ;
 
-INSERT INTO credentials (first_name, last_name, email, password)
-VALUES
-    ('John', 'Doe', 'john.doe@example.com', 'password1'),
-    ('Jane', 'Smith', 'jane.smith@example.com', 'password2'),
-    ('Michael', 'Johnson', 'michael.johnson@example.com', 'password3'),
-    ('Emily', 'Williams', 'emily.williams@example.com', 'password4'),
-    ('William', 'Brown', 'william.brown@example.com', 'password5'),
-    ('Olivia', 'Jones', 'olivia.jones@example.com', 'password6'),
-    ('James', 'Garcia', 'james.garcia@example.com', 'password7'),
-    ('Sophia', 'Miller', 'sophia.miller@example.com', 'password8'),
-    ('Benjamin', 'Davis', 'benjamin.davis@example.com', 'password9'),
-    ('Isabella', 'Rodriguez', 'isabella.rodriguez@example.com', 'password10'),
-    ('Logan', 'Martinez', 'logan.martinez@example.com', 'password11'),
-    ('Evelyn', 'Martinez', 'evelyn.martinez@example.com', 'password12'),
-    ('Elijah', 'Lee', 'elijah.lee@example.com', 'password13'),
-    ('Mia', 'Gomez', 'mia.gomez@example.com', 'password14'),
-    ('Aiden', 'Lopez', 'aiden.lopez@example.com', 'password15'),
-    ('Liam', 'Hernandez', 'liam.hernandez@example.com', 'password16'),
-    ('Ava', 'Wright', 'ava.wright@example.com', 'password17'),
-    ('Lucas', 'Perez', 'lucas.perez@example.com', 'password18'),
-    ('Harper', 'Hall', 'harper.hall@example.com', 'password19'),
-    ('Ella', 'Young', 'ella.young@example.com', 'password20'),
-    ('Mason', 'Turner', 'mason.turner@example.com', 'password21'),
-    ('Luna', 'Allen', 'luna.allen@example.com', 'password22'),
-    ('Ethan', 'Sanchez', 'ethan.sanchez@example.com', 'password23'),
-    ('Scarlett', 'Flores', 'scarlett.flores@example.com', 'password24'),
-    ('Daniel', 'Nguyen', 'daniel.nguyen@example.com', 'password25'),
-    ('Lily', 'Cook', 'lily.cook@example.com', 'password26'),
-    ('Matthew', 'Rogers', 'matthew.rogers@example.com', 'password27'),
-    ('Victoria', 'Murphy', 'victoria.murphy@example.com', 'password28');
-
 
