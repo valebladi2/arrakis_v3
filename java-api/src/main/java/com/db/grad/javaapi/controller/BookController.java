@@ -2,7 +2,7 @@ package com.db.grad.javaapi.controller;
 
 import com.db.grad.javaapi.exception.ResourceNotFoundException;
 import com.db.grad.javaapi.model.Books;
-import com.db.grad.javaapi.service.BookHandler;
+import com.db.grad.javaapi.service.BooksHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,14 +13,15 @@ import java.util.Map;
 
 @RestController
 public class BookController {
-    private BookHandler BookService;
+    private BooksHandler BookService;
 
     @Autowired
-    public BookController(BookHandler bs)
+    public BookController(BooksHandler bs)
     {
         BookService = bs;
     }
 
+    /*
     @GetMapping("/books")
     public List<Books> getAllBooks() {
         return BookService.getAllBooks();
@@ -60,4 +61,5 @@ public class BookController {
 
         return response;
     }
+    */
 }
