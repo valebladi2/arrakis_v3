@@ -30,6 +30,9 @@ public class BooksController {
     @GetMapping("/getBondsPlusMinus5DaysPos/{date}")
     public List<String> getBondsPlusMinusPos(@PathVariable String date) {return booksService.getBondsPlusMinusPos(date);
     }
+    @GetMapping("/getBondsPlusMinus5DaysPosId/{id}")
+    public List<String> getBondsPlusMinusPosId(@PathVariable int id) {return booksService.getBondsPlusMinusPosId(id);
+    }
 
 
 }
