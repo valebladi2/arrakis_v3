@@ -23,8 +23,13 @@ public class BooksController {
     @GetMapping("/getBondsPlusMinus5Days/{date}")
     public List<String> getBondsPlusMinus5Days(@PathVariable String date) {return booksService.getBondsPlusMinus(date);
     }
-    @GetMapping("/getMaturity/")
+    @GetMapping("/getMaturity")
     public List<String> getMaturityDate() {return booksService.getMatDate();
     }
+
+    @GetMapping("/getBondsPlusMinus5DaysPos/{date}")
+    public List<String> getBondsPlusMinusPos(@PathVariable String date) {return booksService.getBondsPlusMinusPos(date);
+    }
+
 
 }

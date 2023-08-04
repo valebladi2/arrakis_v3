@@ -20,6 +20,6 @@ public class BooksHandler {
     public List<String> getBondsPlusMinus(String date) {return bookRepo.getBondsPlusMin(date);}
 
     public List<String> getMatDate() {return bookRepo.getMatDate();}
-
+    public List<String> getBondsPlusMinusPos(String date) {return bookRepo.getBondsPlusMinPos(date);}
 
 }

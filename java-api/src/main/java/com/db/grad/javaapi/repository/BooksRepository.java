@@ -22,7 +22,8 @@ public interface BooksRepository extends JpaRepository<Books, Long>
     @Query(nativeQuery = true, value = "select BONDMATURITYDATE from books")
     List<String> getMatDate();
 
-
+    @Query(nativeQuery = true, value = "select bookid, bookname,status, bondmaturitydate, issuername, isin, facevalue, cusip, bondcurrency, couponpercent, unitprice, DAY_OF_WEEK(CAST(PARSEDATETIME( BONDMATURITYDATE,'dd-MM-yy') as DATE) ), unitprice*facevalue*couponpercent, bondcurrency as position from books where  CAST(PARSEDATETIME(BONDMATURITYDATE,'dd-MM-yy') as DATE)  between  CAST(:date as DATE)-7  and CAST(:date as DATE) +7 and status = 'active'")
+    List<String> getBondsPlusMinPos(String date);
 
 
 }
