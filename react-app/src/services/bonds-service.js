@@ -1,5 +1,4 @@
 import http from './axios-common';
-export function getAllBondsOfAUser(){
-    let bondHolder = "Goldman%20Sachs"
-    return http.get(`/getBondsOfUser/${bondHolder}`);
+export function getAllBondsOfAUser(bondHolder){
+    return http.get(`/getBondsOfUser/${encodeURIComponent(bondHolder)}`);
 }
