@@ -12,10 +12,10 @@ import java.util.List;
 @Repository
 public interface BooksUsersRepository extends JpaRepository<Books, String>
 {
-    @Query(nativeQuery = true, value = "select distinct b.bookname, u.bondholder, b.status, b.issuername, b.isin, b.cusip, b.facevalue, b.bondmaturitydate, b.bondcurrency, b.couponpercent, b.unitprice\n" +
-            "from booksusers bu\n" +
-            "                 left join books b on bu.bookid = b.bookid  \n" +
-            "                 left join users u on u.userid = bu.userid" +
-            "where bondholder = :bondholder and status = 'active'")
+    @Query(nativeQuery = true, value = "select b.bookname, u.bondholder, b.status, b.issuername, b.isin, b.cusip, b.facevalue, b.bondmaturitydate, b.bondcurrency, b.couponpercent, b.unitprice \n" +
+            "            from booksusers bu\n" +
+            "                             left join books b on bu.bookid = b.bookid  \n" +
+            "                             left join users u on u.userid = bu.userid\n" +
+            "            where bondholder = :bondholder and status = 'active'")
     List<String> getAllBooksUser(String bondholder);
 }
