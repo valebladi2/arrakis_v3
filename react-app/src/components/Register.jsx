@@ -6,7 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Image from "../images/Deutsche-Bank-Logo.png";
 import Nav from "react-bootstrap/Nav";
 import {createUserWithEmailAndPassword} from "firebase/auth";
-import {auth} from "../config/firebase";
+import auth from "../config/firebase";
 import {useNavigate} from "react-router-dom";
 
 const Register = () => {
