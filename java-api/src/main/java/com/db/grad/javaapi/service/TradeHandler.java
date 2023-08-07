@@ -45,4 +45,9 @@ public class TradeHandler implements ITradeService{
         public Trades addTrade(Trades trade) {
                 return tradeRepo.save(trade);
         }
+
+        @Override
+        public List<String> showRedeemableBonds(String date){
+                return tradeRepo.showRedeemableBonds(date);
+        }
 }
