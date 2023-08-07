@@ -9,10 +9,9 @@ import { getAllBondsOfAUser } from "../services/bonds-service";
 
 export const Bonds = () => {
 
-    const [date, setDate] = useState('12-July-2021');
-    const [type, setType] = useState('Sovereign');
     const [isShown, setIsShown] = useState(false);
     const [bonds, setBonds] = useState([]);
+    const [selectedBondHolder, setSelectedBondHolder] = useState('AZ Holdings Inc');
 
     const handleClick = event => {
         setIsShown(true);
@@ -28,11 +27,12 @@ export const Bonds = () => {
     }
 
     useEffect(() => {
-        getAllBondsofAUserAPI();
-    }, [])
+        getAllBondsofAUserAPI(selectedBondHolder);
+    }, [selectedBondHolder])
 
-    const getAllBondsofAUserAPI = () => {
-        getAllBondsOfAUser()
+    const getAllBondsofAUserAPI = (bondHolder) => {
+        console.log(bondHolder)
+        getAllBondsOfAUser(bondHolder)
             .then(res => {
                 setBonds(res.data);
             })
@@ -63,20 +63,21 @@ export const Bonds = () => {
             </Navbar>
             <div style={{ background: "linear-gradient(to bottom right, #000FFF, #000000)", minHeight: "calc(100vh - 56px)", padding: "20px" }}>
                 <div>
-                    <label style={{color: "#FFFFFF" }}>
-                        <b>Choose the bondholder:</b><br></br>
-                        <select>
-                            <option value="az_holding_inc">AZ Holdings Inc</option>
-                            <option value="acme_so">Acme co</option>
-                            <option value="sovereign_investments">Sovereign Investments</option>
-                            <option value="astra_trading_ltd">Astra Trading Ltd</option>
-                            <option value="muncipal_gov_of_orange_county">Muncipal Gov Of Orange County</option>
-                            <option value="goldman_sachs">Goldman Sachs</option>
-                            <option value="ubs">UBS</option>
-                            <option value="barclays">Barclays</option>
-                            <option value="british_telecom">British Telecom</option>
-                            <option value="pension_holdings">Pension Holdings</option>
-                            <option value="zurich_pension_fund_4">Zurich Pension fund 4</option>
+                    <label style={{ color: "#FFFFFF" }}>
+                        <b>Choose the Bond Holder:</b><br></br>
+
+                        <select onChange={(event) => setSelectedBondHolder(event.target.value)}>
+                            <option value="AZ Holdings Inc">AZ Holdings Inc</option>
+                            <option value="Acme co">Acme co</option>
+                            <option value="Sovereign Investments">Sovereign Investments</option>
+                            <option value="Astra Trading Ltd">Astra Trading Ltd</option>
+                            <option value="Muncipal Gov Of Orange County">Muncipal Gov Of Orange County</option>
+                            <option value="Goldman Sachs">Goldman Sachs</option>
+                            <option value="UBS">UBS</option>
+                            <option value="Barclays">Barclays</option>
+                            <option value="British Telecom">British Telecom</option>
+                            <option value="Pension Holdings">Pension Holdings</option>
+                            <option value="Zurich Pension fund 4">Zurich Pension fund 4</option>
                         </select>
 
                     </label>
@@ -110,98 +111,28 @@ export const Bonds = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>{bonds[0].split(",")[0]}</td>
-                                <td>{bonds[0].split(",")[1]}</td>
-                                <td>{bonds[0].split(",")[2]}</td>
-                                <td>{bonds[0].split(",")[3]}</td>
-                                <td>{bonds[0].split(",")[4]}</td>
-                                <td>{bonds[0].split(",")[5]}</td>
-                                <td>{bonds[0].split(",")[6]}</td>
-                                <td>{bonds[0].split(",")[7]}</td>
-                                <td>{bonds[0].split(",")[8]}</td>
-                                <td>{bonds[0].split(",")[9]}</td>
-                                <td>{bonds[0].split(",")[10]}</td>
-                            </tr>
-                            <tr>
-                                <td>{bonds[1].split(",")[0]}</td>
-                                <td>{bonds[1].split(",")[1]}</td>
-                                <td>{bonds[1].split(",")[2]}</td>
-                                <td>{bonds[1].split(",")[3]}</td>
-                                <td>{bonds[1].split(",")[4]}</td>
-                                <td>{bonds[1].split(",")[5]}</td>
-                                <td>{bonds[1].split(",")[6]}</td>
-                                <td>{bonds[1].split(",")[7]}</td>
-                                <td>{bonds[1].split(",")[8]}</td>
-                                <td>{bonds[1].split(",")[9]}</td>
-                                <td>{bonds[1].split(",")[10]}</td>
-                            </tr>
-                            <tr>
-                                <td>{bonds[2].split(",")[0]}</td>
-                                <td>{bonds[2].split(",")[1]}</td>
-                                <td>{bonds[2].split(",")[2]}</td>
-                                <td>{bonds[2].split(",")[3]}</td>
-                                <td>{bonds[2].split(",")[4]}</td>
-                                <td>{bonds[2].split(",")[5]}</td>
-                                <td>{bonds[2].split(",")[6]}</td>
-                                <td>{bonds[2].split(",")[7]}</td>
-                                <td>{bonds[2].split(",")[8]}</td>
-                                <td>{bonds[2].split(",")[9]}</td>
-                                <td>{bonds[2].split(",")[10]}</td>
-                            </tr>
-                            <tr>
-                                <td>{bonds[3].split(",")[0]}</td>
-                                <td>{bonds[3].split(",")[1]}</td>
-                                <td>{bonds[3].split(",")[2]}</td>
-                                <td>{bonds[3].split(",")[3]}</td>
-                                <td>{bonds[3].split(",")[4]}</td>
-                                <td>{bonds[3].split(",")[5]}</td>
-                                <td>{bonds[3].split(",")[6]}</td>
-                                <td>{bonds[3].split(",")[7]}</td>
-                                <td>{bonds[3].split(",")[8]}</td>
-                                <td>{bonds[3].split(",")[9]}</td>
-                                <td>{bonds[3].split(",")[10]}</td>
-                            </tr>
-                            <tr>
-                                <td>{bonds[4].split(",")[0]}</td>
-                                <td>{bonds[4].split(",")[1]}</td>
-                                <td>{bonds[4].split(",")[2]}</td>
-                                <td>{bonds[4].split(",")[3]}</td>
-                                <td>{bonds[4].split(",")[4]}</td>
-                                <td>{bonds[4].split(",")[5]}</td>
-                                <td>{bonds[4].split(",")[6]}</td>
-                                <td>{bonds[4].split(",")[7]}</td>
-                                <td>{bonds[4].split(",")[8]}</td>
-                                <td>{bonds[4].split(",")[9]}</td>
-                                <td>{bonds[4].split(",")[10]}</td>
-                            </tr>
-                            <tr>
-                                <td>{bonds[5].split(",")[0]}</td>
-                                <td>{bonds[5].split(",")[1]}</td>
-                                <td>{bonds[5].split(",")[2]}</td>
-                                <td>{bonds[5].split(",")[3]}</td>
-                                <td>{bonds[5].split(",")[4]}</td>
-                                <td>{bonds[5].split(",")[5]}</td>
-                                <td>{bonds[5].split(",")[6]}</td>
-                                <td>{bonds[5].split(",")[7]}</td>
-                                <td>{bonds[5].split(",")[8]}</td>
-                                <td>{bonds[5].split(",")[9]}</td>
-                                <td>{bonds[5].split(",")[10]}</td>
-                            </tr>
-                            <tr>
-                                <td>{bonds[6].split(",")[0]}</td>
-                                <td>{bonds[6].split(",")[1]}</td>
-                                <td>{bonds[6].split(",")[2]}</td>
-                                <td>{bonds[6].split(",")[3]}</td>
-                                <td>{bonds[6].split(",")[4]}</td>
-                                <td>{bonds[6].split(",")[5]}</td>
-                                <td>{bonds[6].split(",")[6]}</td>
-                                <td>{bonds[6].split(",")[7]}</td>
-                                <td>{bonds[6].split(",")[8]}</td>
-                                <td>{bonds[6].split(",")[9]}</td>
-                                <td>{bonds[6].split(",")[10]}</td>
-                            </tr>
-
+                            {bonds.map((bond, index) => {
+                                const bondData = bond.split(',');
+                                if (bondData[1] === selectedBondHolder) {
+                                    return (
+                                        <tr key={index}>
+                                            <td>{bondData[0]}</td>
+                                            <td>{bondData[1]}</td>
+                                            <td>{bondData[2]}</td>
+                                            <td>{bondData[3]}</td>
+                                            <td>{bondData[4]}</td>
+                                            <td>{bondData[5]}</td>
+                                            <td>{bondData[6]}</td>
+                                            <td>{bondData[7]}</td>
+                                            <td>{bondData[8]}</td>
+                                            <td>{bondData[9]}</td>
+                                            <td>{bondData[10]}</td>
+                                        </tr>
+                                    );
+                                    
+                                }
+                                return null;
+                            })}
                         </tbody>
                     </table>
                 </>
