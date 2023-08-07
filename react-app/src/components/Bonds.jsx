@@ -1,11 +1,11 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Image from './../images/Deutsche-Bank-Logo.png'
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import {getAllBondsOfAUser} from "../services/bonds-service";
+import { getAllBondsOfAUser } from "../services/bonds-service";
 
 export const Bonds = () => {
 
@@ -24,15 +24,14 @@ export const Bonds = () => {
         const shouldLogout = window.confirm("Are you sure you want to logout?");
         let path = '/login'
         if (shouldLogout)
-        navigate(path)
+            navigate(path)
     }
 
     useEffect(() => {
         getAllBondsofAUserAPI();
     }, [])
 
-    const getAllBondsofAUserAPI = () =>
-    {
+    const getAllBondsofAUserAPI = () => {
         getAllBondsOfAUser()
             .then(res => {
                 setBonds(res.data);
@@ -63,6 +62,25 @@ export const Bonds = () => {
                 </Container>
             </Navbar>
             <div style={{ background: "linear-gradient(to bottom right, #000FFF, #000000)", minHeight: "calc(100vh - 56px)", padding: "20px" }}>
+                <div>
+                    <label style={{color: "#FFFFFF" }}>
+                        <b>Choose the bondholder:</b><br></br>
+                        <select>
+                            <option value="az_holding_inc">AZ Holdings Inc</option>
+                            <option value="acme_so">Acme co</option>
+                            <option value="sovereign_investments">Sovereign Investments</option>
+                            <option value="astra_trading_ltd">Astra Trading Ltd</option>
+                            <option value="muncipal_gov_of_orange_county">Muncipal Gov Of Orange County</option>
+                            <option value="goldman_sachs">Goldman Sachs</option>
+                            <option value="ubs">UBS</option>
+                            <option value="barclays">Barclays</option>
+                            <option value="british_telecom">British Telecom</option>
+                            <option value="pension_holdings">Pension Holdings</option>
+                            <option value="zurich_pension_fund_4">Zurich Pension fund 4</option>
+                        </select>
+
+                    </label>
+                </div>
                 <div className="card" style={{ width: "18rem", marginLeft: "600px", marginTop: "100px" }}>
                     <div className="card-body" >
                         <h5 className="card-title">Bond</h5>
@@ -71,6 +89,7 @@ export const Bonds = () => {
                         <button type="submit" className="btn btn-primary" style={{ marginLeft: "20px" }} >Next</button>
                     </div>
                 </div>
+
                 {isShown && (<>
                     <h2 style={{ color: "white" }}>More details:</h2>
                     <table className="table" style={{ borderStyle: "solid", borderRadius: "20px", borderColor: "gray" }} >
