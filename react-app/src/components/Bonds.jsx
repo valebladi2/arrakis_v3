@@ -58,10 +58,17 @@ export const Bonds = () => {
                     <table className="table" style={{ borderStyle: "solid", borderRadius: "20px", borderColor: "gray" }} >
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col">Book name</th>
+                                <th scope="col">Bond holder</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Issuer name</th>
+                                <th scope="col">ISIN</th>
+                                <th scope="col">CUSIP</th>
+                                <th scope="col">Face value</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Currency</th>
+                                <th scope="col">Coupon_percent</th>
+                                <th scope="col">Unit price</th>
                             </tr>
                         </thead>
                         <tbody>
