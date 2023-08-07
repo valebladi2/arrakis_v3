@@ -5,18 +5,27 @@ import Nav from "react-bootstrap/Nav";
 import Image from './../images/Deutsche-Bank-Logo.png'
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import {getAllBondsOfAUser} from "../services/bonds-service";
-import {signOut} from "firebase/auth";
+import { getAllBonds, getAllBondsOfAUser, getBondsForPlusMinus5Days } from "../services/bonds-service";
+import { signOut } from "firebase/auth";
 import auth from "../config/firebase";
 
 export const Bonds = () => {
 
     const [isShown, setIsShown] = useState(false);
+    const [allShownBonds, setAllShownBonds] = useState(false);
+    const [allBondsByMaturity, setAllBondsByMaturity] = useState(false);
     const [bonds, setBonds] = useState([]);
-    const [selectedBondHolder, setSelectedBondHolder] = useState('AZ Holdings Inc');
+    const [allBonds, setAllBonds] = useState([]);
+    const [selectedBondHolder, setSelectedBondHolder] = useState('Acme co');
+    const [selectedDate, setSelectedDate] = useState('');
+    const [bondDate, setDate] = useState([]);
 
     const handleClick = event => {
         setIsShown(true);
+    }
+
+    const handleClickDate = event => {
+        setAllBondsByMaturity(true);
     }
 
     let navigate = useNavigate();
@@ -26,30 +35,64 @@ export const Bonds = () => {
     const logOut = async () => {
         try {
             const shouldLogout = window.confirm("Are you sure you want to logout?");
-            if (shouldLogout){
+            if (shouldLogout) {
                 await signOut(auth);
                 navigate('/login')
             }
             console.log("Logout successfully!")
 
-        } catch (err){
+        } catch (err) {
             console.error(err);
         }
     };
-
 
     useEffect(() => {
         getAllBondsofAUserAPI(selectedBondHolder);
     }, [selectedBondHolder])
 
     const getAllBondsofAUserAPI = (bondHolder) => {
-        console.log(bondHolder)
         getAllBondsOfAUser(bondHolder)
             .then(res => {
                 setBonds(res.data);
             })
             .catch(err => {
                 setBonds([]);
+                console.log(err);
+            })
+
+    }
+
+    const showBonds = () => {
+        getAllBonds()
+            .then(res => {
+                setAllBonds(res.data);
+            })
+            .catch(err => {
+                setAllBonds([]);
+                console.log(err);
+            })
+        setAllShownBonds(true);
+    }
+
+    const hideBonds = () => {
+        setAllShownBonds(false);
+    }
+
+    const handleDateChange = (event) => {
+        setSelectedDate(event.target.value);
+      };
+
+    useEffect(() => {
+        getBondsForPlusMinus5DaysAPI(selectedDate);
+    }, [selectedDate])
+
+    const getBondsForPlusMinus5DaysAPI = (bondDate) => {
+        getBondsForPlusMinus5Days(bondDate)
+            .then(res => {
+                setDate(res.data);
+            })
+            .catch(err => {
+                setDate([]);
                 console.log(err);
             })
 
@@ -74,12 +117,60 @@ export const Bonds = () => {
                 </Container>
             </Navbar>
             <div style={{ background: "linear-gradient(to bottom right, #000FFF, #000000)", minHeight: "calc(100vh - 56px)", padding: "20px" }}>
+                <div className="card" style={{ width: "14rem", margin: "0 auto", marginTop: "50px", marginBottom: "20px", display: "flex", justifyContent: "center", alignItems: "center" }}>                    <div className="card-body" >
+                    <h5 className="card-title">Bonds information</h5>
+                </div>
+                </div>
                 <div>
                     <label style={{ color: "#FFFFFF" }}>
-                        <b>Choose the Bond Holder:</b><br></br>
+                        <button type="submit" className="btn btn-info" onClick={showBonds}>Show all</button>
+                        <button type="submit" className="btn btn-danger" onClick={hideBonds}>Hide all</button><br></br><br></br>
+                        {allShownBonds && (<>
+                            <h2 style={{ color: "white" }}>All bonds:</h2>
+                            <table className="table" style={{ borderStyle: "solid", borderRadius: "20px", borderColor: "gray" }} >
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Book name</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Maturity date</th>
+                                        <th scope="col">ISIN</th>
+                                        <th scope="col">CUSIP</th>
+                                        <th scope="col">Issuer name</th>
+                                        <th scope="col">Face value</th>
+                                        <th scope="col">Currency</th>
+                                        <th scope="col">Coupon percent</th>
+                                        <th scope="col">Unit price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {allBonds.map((oneBond, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td>{oneBond.id}</td>
+                                                <td>{oneBond.bookName}</td>
+                                                <td>{oneBond.status}</td>
+                                                <td>{oneBond.bondmaturitydate}</td>
+                                                <td>{oneBond.isin}</td>
+                                                <td>{oneBond.cusip}</td>
+                                                <td>{oneBond.issuerName}</td>
+                                                <td>{oneBond.faceValue}</td>
+                                                <td>{oneBond.bondCurrency}</td>
+                                                <td>{oneBond.couponPercent}</td>
+                                                <td>{oneBond.unitPrice}</td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                        </>
+
+
+                        )}
+
+                        <b>Choose the Bond Holder: </b><br></br>
 
                         <select onChange={(event) => setSelectedBondHolder(event.target.value)}>
-                            <option value="AZ Holdings Inc">AZ Holdings Inc</option>
                             <option value="Acme co">Acme co</option>
                             <option value="Sovereign Investments">Sovereign Investments</option>
                             <option value="Astra Trading Ltd">Astra Trading Ltd</option>
@@ -91,16 +182,8 @@ export const Bonds = () => {
                             <option value="Pension Holdings">Pension Holdings</option>
                             <option value="Zurich Pension fund 4">Zurich Pension fund 4</option>
                         </select>
-
+                        <button type="submit" className="btn btn-info" onClick={handleClick} style={{ marginLeft: "10px" }}>See details</button><br></br><br></br>
                     </label>
-                </div>
-                <div className="card" style={{ width: "18rem", marginLeft: "600px", marginTop: "100px" }}>
-                    <div className="card-body" >
-                        <h5 className="card-title">Bond</h5>
-                        <button type="submit" className="btn btn-primary" >Previous</button>
-                        <button type="submit" className="btn btn-primary" onClick={handleClick} style={{ marginLeft: "10px" }}>Details</button>
-                        <button type="submit" className="btn btn-primary" style={{ marginLeft: "20px" }} >Next</button>
-                    </div>
                 </div>
 
                 {isShown && (<>
@@ -141,7 +224,7 @@ export const Bonds = () => {
                                             <td>{bondData[10]}</td>
                                         </tr>
                                     );
-                                    
+
                                 }
                                 return null;
                             })}
@@ -149,9 +232,63 @@ export const Bonds = () => {
                     </table>
                 </>
 
+                )}
+                <label style={{ color: "#FFFFFF" }}>
+                <b>Insert a date to view Bonds due for maturity within the last and next 5 days: </b>
+                        <input
+                            type="date"
+                            id="datePicker"
+                            value={selectedDate}
+                            onChange={handleDateChange}
+                        />
+                        <button type="submit" className="btn btn-info" onClick={handleClickDate} style={{ marginLeft: "10px" }}>See bonds</button><br></br><br></br>
+
+                        <p>Selected Date: {selectedDate}</p>
+                </label>
+
+                {allBondsByMaturity && (<>
+                    <h2 style={{ color: "white" }}>Plus/minus 5 days maturity dates bonds:</h2>
+                    <table className="table" style={{ borderStyle: "solid", borderRadius: "20px", borderColor: "gray" }} >
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Book name</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Maturity date</th>
+                                <th scope="col">Issuer Name</th>
+                                <th scope="col">ISIN</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">CUSIP</th>
+                                <th scope="col">Bond Currency</th>
+                                <th scope="col">Coupon Percent</th>
+                                <th scope="col">Unit Price</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {bondDate.map((bondDate1, index) => {
+                                const bondDateData = bondDate1.split(',');
+                                    return (
+                                        <tr key={index}>
+                                            <td>{bondDateData[0]}</td>
+                                            <td>{bondDateData[1]}</td>
+                                            <td>{bondDateData[2]}</td>
+                                            <td>{bondDateData[3]}</td>
+                                            <td>{bondDateData[4]}</td>
+                                            <td>{bondDateData[5]}</td>
+                                            <td>{bondDateData[6]}</td>
+                                            <td>{bondDateData[7]}</td>
+                                            <td>{bondDateData[8]}</td>
+                                            <td>{bondDateData[9]}</td>
+                                            <td>{bondDateData[10]}</td>
+                                        </tr>
+                                    );
+                            })}
+                        </tbody>
+                    </table>
+                </>
 
                 )}
-
             </div>
 
 
