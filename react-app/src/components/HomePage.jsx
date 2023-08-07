@@ -5,6 +5,8 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Image from './../images/Deutsche-Bank-Logo.png'
 import { useNavigate } from 'react-router-dom';
+import {signOut} from "firebase/auth";
+import {auth} from "../config/firebase";
 
 const Homepage = () => {
 
@@ -16,6 +18,20 @@ const Homepage = () => {
     if (shouldLogout)
       navigate(path)
   }
+
+  const logOut = async () => {
+    try {
+      const shouldLogout = window.confirm("Are you sure you want to logout?");
+      if (shouldLogout){
+        await signOut(auth);
+        navigate('/login')
+      }
+      console.log("Logout successfully!")
+
+    } catch (err){
+      console.error(err);
+    }
+  };
 
   return (
     <>
@@ -29,7 +45,7 @@ const Homepage = () => {
             <Nav className="me-auto">
               <Nav.Link href="/bonds"><b>Bonds</b></Nav.Link>
               <Nav.Link href="/profile"><b>Profile</b></Nav.Link>
-              <Nav.Link onClick={routeChange}><b>Logout</b></Nav.Link>
+              <Nav.Link onClick={logOut}><b>Logout</b></Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

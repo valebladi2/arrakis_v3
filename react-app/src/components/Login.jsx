@@ -12,15 +12,18 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
+    const [isError, setIsError] = useState(false)
 
     console.log(auth?.currentUser?.email);
     console.log(auth?.currentUser?.photoURL);
     const signIn = async () => {
         try {
             await  signInWithEmailAndPassword(auth, email, password);
+            navigate('/home')
         } catch (error){
             const errorCode = error.code;
             const errorMessage = error.message;
+            setIsError(true);
         }
     };
 
@@ -97,7 +100,9 @@ const Login = () => {
                 </div>
                 <button type="submit" className="btn btn-primary" style={{marginTop:"10px", marginLeft:"500px"}} onClick={signIn} >Login</button>
                 <button type="submit" className="btn btn-primary" onClick={routeChange} style={{marginTop:"10px", marginLeft:"150px"}}>Register</button>
-
+                {isError && (<>
+                    <span className="text-danger" style={{marginLeft:"500px"}}>Email or password is wrong!</span>
+                </>)}
             </form>
         </div>
         </>
