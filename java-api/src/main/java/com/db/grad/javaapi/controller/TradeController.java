@@ -57,4 +57,9 @@ public class TradeController {
 
         return response;
     }
+
+    @GetMapping("/trades/redeemablebonds")
+    public List<String> showRedeemableBonds(String date){
+        return TradeService.showRedeemableBonds(date);
+    }
 }

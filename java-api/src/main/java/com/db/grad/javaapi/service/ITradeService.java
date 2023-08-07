@@ -16,4 +16,6 @@ public interface ITradeService {
     Trades addTrade(Trades trade);
 
     boolean removeTrade(long uniqueId);
+
+    List<String> showRedeemableBonds(String date);
 }

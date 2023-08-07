@@ -38,7 +38,7 @@ CREATE TABLE booksusers (
 CREATE TABLE trades (
     tradeid int NOT NULL AUTO_INCREMENT,
     tradetype VARCHAR(250) NOT NULL,
-    bookname VARCHAR(100) NOT NULL,
+    bookid VARCHAR(100) NOT NULL,
     isin VARCHAR(100) NOT NULL,
     tradecurrency VARCHAR(250) NOT NULL,
     tradedate VARCHAR(100) NOT NULL,

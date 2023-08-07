@@ -12,4 +12,7 @@ public interface TradeRepository extends JpaRepository<Trades, Long>
 {
     @Query(nativeQuery = true, value = "select * from trades")
     List<Trades> getAllTrades();
+
+    @Query(nativeQuery = true, value = "SELECT books.*, tradetype FROM trades LEFT JOIN books ON books.bookid = trades.bookid WHERE CAST(:date as DATE) < CAST(PARSEDATETIME(books.BONDMATURITYDATE, 'dd-MM-yy') AS DATE);")
+    List<String> showRedeemableBonds(String date);
 }
