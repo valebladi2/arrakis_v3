@@ -10,11 +10,12 @@ import { Auth } from './components/auth.js';
 
 
 import './App.css'
+import { RedeemableBonds } from './components/RedeemableBonds';
 
 const App = () => {
   return (
     <>
-      <Routes>
+      {/* <Routes>
           <Route path="/" element={<Login/>} />
           <Route path="/home" element={<HomePage/>} />
           <Route path="/profile" element={<Profile/>} />
@@ -22,7 +23,8 @@ const App = () => {
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/Auth" element={<Auth/>}/>
-      </Routes>
+      </Routes> */}
+      <RedeemableBonds/>
     </>);
 }
 

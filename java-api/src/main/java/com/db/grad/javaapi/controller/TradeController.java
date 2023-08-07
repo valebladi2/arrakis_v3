@@ -11,7 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 @RestController
+@CrossOrigin(origins="http://localhost:3000")
 public class TradeController {
     private TradeHandler TradeService;
 
@@ -58,8 +60,8 @@ public class TradeController {
         return response;
     }
 
-    @GetMapping("/trades/redeemablebonds")
-    public List<String> showRedeemableBonds(String date){
+    @GetMapping("/trades/redeemablebonds/{date}")
+    public List<String> showRedeemableBonds(@PathVariable String date){
         return TradeService.showRedeemableBonds(date);
     }
 }

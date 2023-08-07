@@ -12,10 +12,21 @@ import UserFormRedeemableBonds from './UserFormRedeemableBonds';
 
 export const RedeemableBonds = () => {
 
-    const [date, setDate] = useState('12-July-2021');
-    const [type, setType] = useState('Sovereign');
+    // const [date, setDate] = useState('12-July-2021');
+    // const [type, setType] = useState('Sovereign');
+    // const [isShown, setIsShown] = useState(false);
+    // const [bonds, setBonds] = useState([]);
+
+    // const handleClick = event => {
+    //     setIsShown(true);
+    // }
+
+    // let navigate = useNavigate();
+
+
     const [isShown, setIsShown] = useState(false);
     const [bonds, setBonds] = useState([]);
+    const [selectedDate, setSelectedDate] = useState('2023-09-09');
 
     const handleClick = event => {
         setIsShown(true);
@@ -41,11 +52,12 @@ export const RedeemableBonds = () => {
 
 
     useEffect(() => {
-        getRedeemableBondsAPI();
-    }, [])
+        getRedeemableBondsAPI(selectedDate);
+    }, [selectedDate])
 
-    const getRedeemableBondsAPI = () => {
-        getRedeemableBonds()
+    const getRedeemableBondsAPI = (date) => {
+        console.log(date)
+        getRedeemableBonds(date)
             .then(res => {
                 setBonds(res.data);
             })
@@ -53,8 +65,40 @@ export const RedeemableBonds = () => {
                 setBonds([]);
                 console.log(err);
             })
-
+            console.log(bonds)
     }
+
+
+    // const logOut = async () => {
+    //     try {
+    //         const shouldLogout = window.confirm("Are you sure you want to logout?");
+    //         if (shouldLogout){
+    //             await signOut(auth);
+    //             navigate('/login')
+    //         }
+    //         console.log("Logout successfully!")
+
+    //     } catch (err){
+    //         console.error(err);
+    //     }
+    // };
+
+
+    // useEffect(() => {
+    //     getRedeemableBondsAPI();
+    // }, [])
+
+    // const getRedeemableBondsAPI = () => {
+    //     getRedeemableBonds()
+    //         .then(res => {
+    //             setBonds(res.data);
+    //         })
+    //         .catch(err => {
+    //             setBonds([]);
+    //             console.log(err);
+    //         })
+
+    // }
 
 
     return (
@@ -94,14 +138,14 @@ export const RedeemableBonds = () => {
 
                     </label>
                 </div>
-                <div className="card" style={{ width: "18rem", marginLeft: "600px", marginTop: "100px" }}>
+                {/* <div className="card" style={{ width: "18rem", marginLeft: "600px", marginTop: "100px" }}>
                     <div className="card-body" >
                         <h5 className="card-title">Bond</h5>
                         <button type="submit" className="btn btn-primary" >Previous</button>
                         <button type="submit" className="btn btn-primary" onClick={handleClick} style={{ marginLeft: "10px" }}>Details</button>
                         <button type="submit" className="btn btn-primary" style={{ marginLeft: "20px" }} >Next</button>
                     </div>
-                </div>
+                </div> */}
                 <div className="card" style={{ width: "18rem", marginLeft: "600px", marginTop: "50px" }}>
                     <div className="card-body" >
                         <h5 className="card-title">Redeemable Bonds</h5>
@@ -113,6 +157,54 @@ export const RedeemableBonds = () => {
                 </div>
 
                 {isShown && (<>
+                    <h2 style={{ color: "white" }}>More details:</h2>
+                    <table className="table" style={{ borderStyle: "solid", borderRadius: "20px", borderColor: "gray" }} >
+                        <thead>
+                            <tr>
+                                <th scope="col">Book name</th>
+                                <th scope="col">Bond Holder</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Issuer Name</th>
+                                <th scope="col">ISIN</th>
+                                <th scope="col">CUSIP</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Bond Maturity Date</th>
+                                <th scope="col">Bond Currency</th>
+                                <th scope="col">Coupon Percent</th>
+                                <th scope="col">Unit Price</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {bonds.map((bond, index) => {
+                                const bondData = bond.split(',');
+                                if (bondData[1] === selectedDate) {
+                                    return (
+                                        <tr key={index}>
+                                            <td>{bondData[0]}</td>
+                                            <td>{bondData[1]}</td>
+                                            <td>{bondData[2]}</td>
+                                            <td>{bondData[3]}</td>
+                                            <td>{bondData[4]}</td><td>{bondData[5]}</td>
+                                            <td>{bondData[6]}</td>
+                                            <td>{bondData[7]}</td>
+                                            <td>{bondData[8]}</td>
+                                            <td>{bondData[9]}</td>
+                                            <td>{bondData[10]}</td>
+                                        </tr>
+                                    );
+                                    
+                                }
+                                return null;
+                            })}
+                        </tbody>
+                    </table>
+                </>
+
+
+                )}
+
+                {/* {isShown && (<>
                     <h2 style={{ color: "white" }}>More details:</h2>
                     <table className="table" style={{ borderStyle: "solid", borderRadius: "20px", borderColor: "gray" }} >
                         <thead>
@@ -229,7 +321,7 @@ export const RedeemableBonds = () => {
                 </>
 
 
-                )}
+                )} */}
 
             </div>
 
@@ -238,4 +330,3 @@ export const RedeemableBonds = () => {
 
     )
 }
-

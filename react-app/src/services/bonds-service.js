@@ -6,5 +6,5 @@ export function getAllBondsOfAUser(){
 
 export function getRedeemableBonds(){
     let date = "2023-12-20"
-    return http.get('trades/redeemablebonds');
+    return http.get('/trades/redeemablebonds/2023-09-09');
 }
