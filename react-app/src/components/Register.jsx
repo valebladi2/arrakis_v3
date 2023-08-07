@@ -5,6 +5,9 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "../images/Deutsche-Bank-Logo.png";
 import Nav from "react-bootstrap/Nav";
+import {createUserWithEmailAndPassword} from "firebase/auth";
+import auth from "../config/firebase";
+import {useNavigate} from "react-router-dom";
 
 const Register = () => {
     const [firstName, setFirstName] = useState('');
@@ -12,6 +15,20 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
+    const [validate,setValidate] = useState(false);
+
+    let navigate = useNavigate();
+
+    const signIn = async () => {
+        try {
+            await createUserWithEmailAndPassword(auth, email, password);
+            navigate('/login');
+
+        } catch (err){
+            console.error(err);
+            setValidate(true);
+        }
+    };
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -111,11 +128,16 @@ const Register = () => {
                         />
                         {errors.password && <span className="text-danger" style={{marginLeft:"500px"}}>{errors.password}</span>}
                     </div>
-                    <button type="submit" className="btn btn-primary" style={{marginTop:"10px", marginLeft:"500px"}}>Register</button>
+                    <button type="submit" className="btn btn-primary" style={{marginTop:"10px", marginLeft:"500px"}} onClick={signIn}>Register</button>
+
                 </form>
+                {validate && ( <>
+                    <span className="text-danger" style={{marginLeft:"500px"}}>User already registered!</span>
+                </>)}
             </div>
 
         </div>
+
     </>
     );
 };

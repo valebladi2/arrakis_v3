@@ -30,7 +30,7 @@ public class Trades
     public String getTradeType() {return tradeType;}
     public void setTradeType(String type) {this.tradeType = type;}
 
-    @Column(name = "bookname", nullable = false)
+    @Column(name = "bookid", nullable = false)
     public String getBookName() {return bookname;}
     public void setBookName(String bookName) {this.bookname = bookName;}
 

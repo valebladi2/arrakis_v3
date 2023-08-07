@@ -5,7 +5,9 @@ import Nav from "react-bootstrap/Nav";
 import Image from './../images/Deutsche-Bank-Logo.png'
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { getAllBondsOfAUser } from "../services/bonds-service";
+import {getAllBondsOfAUser} from "../services/bonds-service";
+import {signOut} from "firebase/auth";
+import auth from "../config/firebase";
 
 export const Bonds = () => {
 
@@ -19,12 +21,22 @@ export const Bonds = () => {
 
     let navigate = useNavigate();
 
-    const routeChange = () => {
-        const shouldLogout = window.confirm("Are you sure you want to logout?");
-        let path = '/login'
-        if (shouldLogout)
-            navigate(path)
-    }
+
+
+    const logOut = async () => {
+        try {
+            const shouldLogout = window.confirm("Are you sure you want to logout?");
+            if (shouldLogout){
+                await signOut(auth);
+                navigate('/login')
+            }
+            console.log("Logout successfully!")
+
+        } catch (err){
+            console.error(err);
+        }
+    };
+
 
     useEffect(() => {
         getAllBondsofAUserAPI(selectedBondHolder);
@@ -56,7 +68,7 @@ export const Bonds = () => {
                         <Nav className="me-auto">
                             <Nav.Link href="/bonds"><b>Bonds</b></Nav.Link>
                             <Nav.Link href="/profile"><b>Profile</b></Nav.Link>
-                            <Nav.Link onClick={routeChange}><b>Logout</b></Nav.Link>
+                            <Nav.Link onClick={logOut}><b>Logout</b></Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
