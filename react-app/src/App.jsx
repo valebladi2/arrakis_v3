@@ -6,7 +6,6 @@ import { Bonds } from './components/Bonds';
 import { Profile } from './components/Profile';
 import {Route, Routes} from 'react-router-dom';
 import Register from "./components/Register";
-import { Auth } from './components/auth.js';
 
 
 import './App.css'
@@ -21,7 +20,6 @@ const App = () => {
           <Route path="/bonds" element={<Bonds/>} />
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
-          <Route path="/Auth" element={<Auth/>}/>
       </Routes>
     </>);
 }
