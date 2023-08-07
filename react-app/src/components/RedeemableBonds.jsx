@@ -5,12 +5,12 @@ import Nav from "react-bootstrap/Nav";
 import Image from './../images/Deutsche-Bank-Logo.png'
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import {getAllBondsOfAUser} from "../services/bonds-service";
+import {getAllBondsOfAUser, getRedeemableBonds} from "../services/bonds-service";
 import {signOut} from "firebase/auth";
 import {auth} from "../config/firebase";
 import UserFormRedeemableBonds from './UserFormRedeemableBonds';
 
-export const Bonds = () => {
+export const RedeemableBonds = () => {
 
     const [date, setDate] = useState('12-July-2021');
     const [type, setType] = useState('Sovereign');
@@ -41,11 +41,11 @@ export const Bonds = () => {
 
 
     useEffect(() => {
-        getAllBondsofAUserAPI();
+        getRedeemableBondsAPI();
     }, [])
 
-    const getAllBondsofAUserAPI = () => {
-        getAllBondsOfAUser()
+    const getRedeemableBondsAPI = () => {
+        getRedeemableBonds()
             .then(res => {
                 setBonds(res.data);
             })
@@ -100,6 +100,15 @@ export const Bonds = () => {
                         <button type="submit" className="btn btn-primary" >Previous</button>
                         <button type="submit" className="btn btn-primary" onClick={handleClick} style={{ marginLeft: "10px" }}>Details</button>
                         <button type="submit" className="btn btn-primary" style={{ marginLeft: "20px" }} >Next</button>
+                    </div>
+                </div>
+                <div className="card" style={{ width: "18rem", marginLeft: "600px", marginTop: "50px" }}>
+                    <div className="card-body" >
+                        <h5 className="card-title">Redeemable Bonds</h5>
+                        <UserFormRedeemableBonds />
+                        {/* <button type="submit" className="btn btn-primary" >Previous</button>
+                        <button type="submit" className="btn btn-primary" onClick={handleClick} style={{ marginLeft: "10px" }}>Details</button> */}
+                        <button type="submit" className="btn btn-primary" onClick={handleClick} style={{ marginLeft: "170px", marginTop:"10px"}} >Search</button>
                     </div>
                 </div>
 

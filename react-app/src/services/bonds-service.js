@@ -3,3 +3,8 @@ export function getAllBondsOfAUser(){
     let bondHolder = "Goldman%20Sachs"
     return http.get(`/getBondsOfUser/${bondHolder}`);
 }
+
+export function getRedeemableBonds(){
+    let date = "2023-12-20"
+    return http.get('trades/redeemablebonds');
+}
