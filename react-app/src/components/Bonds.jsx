@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import {getAllBondsOfAUser} from "../services/bonds-service";
 import {signOut} from "firebase/auth";
-import {auth} from "../config/firebase";
+import auth from "../config/firebase";
 
 export const Bonds = () => {
 
@@ -148,72 +148,6 @@ export const Bonds = () => {
                                 <td>{bonds[1].split(",")[9]}</td>
                                 <td>{bonds[1].split(",")[10]}</td>
                             </tr>
-                            <tr>
-                                <td>{bonds[2].split(",")[0]}</td>
-                                <td>{bonds[2].split(",")[1]}</td>
-                                <td>{bonds[2].split(",")[2]}</td>
-                                <td>{bonds[2].split(",")[3]}</td>
-                                <td>{bonds[2].split(",")[4]}</td>
-                                <td>{bonds[2].split(",")[5]}</td>
-                                <td>{bonds[2].split(",")[6]}</td>
-                                <td>{bonds[2].split(",")[7]}</td>
-                                <td>{bonds[2].split(",")[8]}</td>
-                                <td>{bonds[2].split(",")[9]}</td>
-                                <td>{bonds[2].split(",")[10]}</td>
-                            </tr>
-                            <tr>
-                                <td>{bonds[3].split(",")[0]}</td>
-                                <td>{bonds[3].split(",")[1]}</td>
-                                <td>{bonds[3].split(",")[2]}</td>
-                                <td>{bonds[3].split(",")[3]}</td>
-                                <td>{bonds[3].split(",")[4]}</td>
-                                <td>{bonds[3].split(",")[5]}</td>
-                                <td>{bonds[3].split(",")[6]}</td>
-                                <td>{bonds[3].split(",")[7]}</td>
-                                <td>{bonds[3].split(",")[8]}</td>
-                                <td>{bonds[3].split(",")[9]}</td>
-                                <td>{bonds[3].split(",")[10]}</td>
-                            </tr>
-                            <tr>
-                                <td>{bonds[4].split(",")[0]}</td>
-                                <td>{bonds[4].split(",")[1]}</td>
-                                <td>{bonds[4].split(",")[2]}</td>
-                                <td>{bonds[4].split(",")[3]}</td>
-                                <td>{bonds[4].split(",")[4]}</td>
-                                <td>{bonds[4].split(",")[5]}</td>
-                                <td>{bonds[4].split(",")[6]}</td>
-                                <td>{bonds[4].split(",")[7]}</td>
-                                <td>{bonds[4].split(",")[8]}</td>
-                                <td>{bonds[4].split(",")[9]}</td>
-                                <td>{bonds[4].split(",")[10]}</td>
-                            </tr>
-                            <tr>
-                                <td>{bonds[5].split(",")[0]}</td>
-                                <td>{bonds[5].split(",")[1]}</td>
-                                <td>{bonds[5].split(",")[2]}</td>
-                                <td>{bonds[5].split(",")[3]}</td>
-                                <td>{bonds[5].split(",")[4]}</td>
-                                <td>{bonds[5].split(",")[5]}</td>
-                                <td>{bonds[5].split(",")[6]}</td>
-                                <td>{bonds[5].split(",")[7]}</td>
-                                <td>{bonds[5].split(",")[8]}</td>
-                                <td>{bonds[5].split(",")[9]}</td>
-                                <td>{bonds[5].split(",")[10]}</td>
-                            </tr>
-                            <tr>
-                                <td>{bonds[6].split(",")[0]}</td>
-                                <td>{bonds[6].split(",")[1]}</td>
-                                <td>{bonds[6].split(",")[2]}</td>
-                                <td>{bonds[6].split(",")[3]}</td>
-                                <td>{bonds[6].split(",")[4]}</td>
-                                <td>{bonds[6].split(",")[5]}</td>
-                                <td>{bonds[6].split(",")[6]}</td>
-                                <td>{bonds[6].split(",")[7]}</td>
-                                <td>{bonds[6].split(",")[8]}</td>
-                                <td>{bonds[6].split(",")[9]}</td>
-                                <td>{bonds[6].split(",")[10]}</td>
-                            </tr>
-
                         </tbody>
                     </table>
                 </>

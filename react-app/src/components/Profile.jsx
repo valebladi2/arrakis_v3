@@ -5,7 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import Image from './../images/Deutsche-Bank-Logo.png'
 import { useNavigate } from 'react-router-dom';
 import {signOut} from "firebase/auth";
-import {auth} from "../config/firebase";
+import auth from "../config/firebase";
 
 export const Profile = () => {
 
@@ -60,14 +60,8 @@ export const Profile = () => {
         position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", padding: "10px"
       }}>
         <h2 style={{ color: "black" }}>User Profile </h2>
-        <div className="profile-label">First Name:</div>
-        <div className="profile-value">{user.firstName}</div>
-
-        <div className="profile-label">Last Name:</div>
-        <div className="profile-value">{user.lastName}</div>
-
         <div className="profile-label">Email:</div>
-        <div className="profile-value">{user.email}</div>
+        <div className="profile-value">{auth?.currentUser?.email}</div>
       </div>
     </>
   )

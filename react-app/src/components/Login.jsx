@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "../images/Deutsche-Bank-Logo.png";
-import {auth} from "../config/firebase";
+import auth from "../config/firebase";
 import {getAuth,signInWithEmailAndPassword } from "firebase/auth";
 
 import Nav from "react-bootstrap/Nav";
