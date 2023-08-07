@@ -6,7 +6,7 @@ import { Bonds } from './components/Bonds';
 import { Profile } from './components/Profile';
 import {Route, Routes} from 'react-router-dom';
 import Register from "./components/Register";
-import { Auth } from './components/Auth';
+import { Auth } from './components/auth.js';
 
 
 import './App.css'
