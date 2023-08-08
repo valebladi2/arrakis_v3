@@ -8,5 +8,5 @@ export function getAllBonds(){
 }
 
 export function getBondsForPlusMinus5Days(bondDate){
-    return http.get(`/getBondsPlusMinus5Days/${encodeURIComponent(bondDate)}`);
+    return http.get(`/getBondsPlusMinus5DaysPos/${encodeURIComponent(bondDate)}`);
 }
