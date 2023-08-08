@@ -262,7 +262,7 @@ export const Bonds = () => {
                                 <th scope="col">Bond Currency</th>
                                 <th scope="col">Coupon Percent</th>
                                 <th scope="col">Unit Price</th>
-
+                                <th scope="col">Position</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -281,6 +281,7 @@ export const Bonds = () => {
                                             <td>{bondDateData[8]}</td>
                                             <td>{bondDateData[9]}</td>
                                             <td>{bondDateData[10]}</td>
+                                            <td>{bondDateData[12]}</td>
                                         </tr>
                                     );
                             })}
